@@ -33,7 +33,7 @@ function getSec() {
   clockSecond.textContent = `${seconds < 10 ? `0${seconds}` : seconds}`;
 }
 
-function init1() {
+function initTime() {
   getCurrentDate();
   getHour();
   getMin();
@@ -44,4 +44,4 @@ function init1() {
     getSec();
   }, 1000);
 }
-init1();
+initTime();
