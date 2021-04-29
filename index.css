@@ -1,29 +1,48 @@
-.colon1 {
-  animation: b 1.1s linear infinite;
+body {
+  background-color: gray;
 }
+
+.colon1 {
+  animation: b 1s linear infinite;
+}
+
 @keyframes b {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
 }
 
 .colon2 {
-  animation: d 1.1s linear infinite;
+  animation: d 1s linear infinite;
 }
+
 @keyframes d {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
+}
+
+.form-greeting,
+.greeting {
+  display: none;
+}
+
+.showing {
+  display: block;
 }
