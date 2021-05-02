@@ -1,3 +1,5 @@
+import {formGreeeting, USER_LS, saveName, handleGreetingSumit, askForName, welcome, loadname, initName} from './greeting.js';
+
 const calender = document.querySelector(".calender"),
   calenderDate = calender.querySelector(".date");
 

@@ -1,33 +1,33 @@
-const formGreeeting = document.querySelector(".form-greeting"),
+export const formGreeeting = document.querySelector(".form-greeting"),
   inputName = formGreeeting.querySelector("input"),
   greeting = document.querySelector(".greeting");
 
-const USER_LS = "user-name",
+export const USER_LS = "user-name",
   SHOW_CN = "showing";
 
-function saveName(name) {
+export function saveName(name) {
   localStorage.setItem(USER_LS, name);
 }
 
-function handleGreetingSumit(event) {
+export function handleGreetingSumit(event) {
   event.preventDefault();
   const inputNameVal = inputName.value;
   saveName(inputNameVal);
   welcome(inputNameVal);
 }
 
-function askForName() {
+export function askForName() {
   formGreeeting.classList.add(SHOW_CN);
   formGreeeting.addEventListener("submit", handleGreetingSumit);
 }
 
-function welcome(name) {
+export function welcome(name) {
   formGreeeting.classList.remove(SHOW_CN);
   greeting.classList.add(SHOW_CN);
   greeting.textContent = `Welcome ${name} 🤗 `;
 }
 
-function loadname() {
+export function loadname() {
   const getUserName = localStorage.getItem(USER_LS);
   if (getUserName === null) {
     askForName();
@@ -36,7 +36,7 @@ function loadname() {
   }
 }
 
-function initName() {
+export function initName() {
   loadname();
 }
 
