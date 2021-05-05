@@ -2,7 +2,7 @@ import {formGreeeting, USER_LS, saveName, handleGreetingSumit, askForName, welco
 
 import {formToDoList, TODOS_LS, toDos, saveToDos, delToDo, createToDo, handleToDosSubmit, loadToDos, initToDos} from './todo-list.js';
 
-
+import {weather, COORDS_LS, getWeather, saveCoords, handleGeoSucces, handleGeoError, askForCoords, loadCoords, initCoords} from './weather.js'
 
 const calender = document.querySelector(".calender"),
   calenderDate = calender.querySelector(".date");
