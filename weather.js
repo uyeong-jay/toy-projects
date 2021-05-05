@@ -48,7 +48,6 @@ export function loadCoords() {
   } else {
     const parseCoords = JSON.parse(getCoords);
     getWeather(parseCoords.latitude, parseCoords.longitude);
-    
   }
 }
 
