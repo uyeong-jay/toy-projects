@@ -4,6 +4,8 @@ import {formToDoList, TODOS_LS, toDos, saveToDos, delToDo, createToDo, handleToD
 
 import {weather, COORDS_LS, getWeather, saveCoords, handleGeoSucces, handleGeoError, askForCoords, loadCoords, initCoords} from './weather.js'
 
+import {body, IMG_NUM, images, number, initImg} from './background.js'
+
 const calender = document.querySelector(".calender"),
   calenderDate = calender.querySelector(".date");
 
