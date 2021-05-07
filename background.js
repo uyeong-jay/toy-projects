@@ -1,21 +1,21 @@
-const body = document.querySelector("body");
+export const body = document.querySelector("body");
 
-const IMG_NUM = 3;
+export const IMG_NUM = 3;
 
-function images(numbers) {
-  const image = new Image();
-  image.src = `images/${numbers}.jpg`
-  body.andChild(image);
-  image.clasppesList.add("bgImages");
+export function images(numbers) {
+  const img = new Image();
+  img.src = `images/${numbers}.jpg`
+  body.appendChild(img);
+  img.classList.add("bgImages");
 }
 
-function number() {
+export function number() {
   const randomNumber =Math.ceil(Math.random() * IMG_NUM); 
   return randomNumber;
 }
 
-function initImgs() {
+export function initImg() {
   const imageNumber = number();
   images(imageNumber);
 }
-initImgs();
+initImg();
