@@ -1,3 +1,16 @@
+body {}
+
+.js-calender-clock {}
+.calender {}
+.clock {}
+
+.js-greeting-toDoList {}
+.inner-greeting {}
+.inner-toDoList {}
+
+.js-weather {}
+
+
 .colon1 {
   animation: b 1s linear infinite;
 }
