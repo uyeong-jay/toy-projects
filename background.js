@@ -1,11 +1,11 @@
-export const body = document.querySelector("body");
+export const container = document.querySelector(".container");
 
 export const IMG_NUM = 3;
 
 export function images(numbers) {
   const img = new Image();
   img.src = `images/${numbers}.jpg`
-  body.appendChild(img);
+  container.appendChild(img);
   img.classList.add("bgImages");
 }
 
