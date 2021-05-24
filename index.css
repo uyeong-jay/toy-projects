@@ -33,6 +33,10 @@ body {
   width: 50%;
   height: 30%;
 }
+.inner-calender-clock {
+  border: 1px solid #000;
+
+}
 .calender {}
 .clock {}
 
@@ -42,7 +46,9 @@ body {
   width: 50%;
   height: 70%;
 }
-
+.inner-weather {
+  border: 1px solid #000;
+}
 .js-greeting-toDoList {
   border: 1px solid #000;
   flex: auto;
@@ -50,9 +56,9 @@ body {
   width: 50%;
   height: 50%;
 }
-.inner-greeting {}
-.inner-toDoList {}
-
+.inner-greeting-toDoList {
+  border: 1px solid #000;
+}
 
 
 .colon1 {
