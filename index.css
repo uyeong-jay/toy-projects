@@ -32,9 +32,16 @@ body {
   flex: auto;
   width: 50%;
   height: 30%;
+  position: relative;
 }
 .inner-calender-clock {
   border: 1px solid #000;
+  width: 50%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
 }
 .calender {}
@@ -45,19 +52,39 @@ body {
   flex: auto;
   width: 50%;
   height: 70%;
+  position: relative;
+
 }
 .inner-weather {
   border: 1px solid #000;
+  width: 75%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
+
 .js-greeting-toDoList {
   border: 1px solid #000;
   flex: auto;
   align-self: flex-end;
   width: 50%;
   height: 50%;
+  position: relative;
+
 }
+
 .inner-greeting-toDoList {
   border: 1px solid #000;
+  width: 75%;
+  height: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
 
