@@ -1,12 +1,10 @@
 body {
   width: 1900px;
   height: 1200px;
-  /* display: inline-block; */
   position: relative;
 }
 .container {
   display: flex;
-  /* flex-wrap: wrap; */
   flex-flow : column wrap;
   justify-content: center;
   align-items: center;
@@ -16,6 +14,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 .container .bgImages {
@@ -25,10 +24,11 @@ body {
   object-position: center;
   position: absolute;
   z-index: -1;
+  border-radius: 10%;
 }
 
 .js-calender-clock {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   flex: auto;
   width: 50%;
   height: 30%;
@@ -36,17 +36,25 @@ body {
 }
 .inner-calender-clock {
   border: 1px solid #000;
-  width: 50%;
-  height: 50%;
+  width: 70%;
+  height: 70%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   padding: 19px;
+  border-radius: 10px;
 }
-.calender {}
-.clock {}
+.calender {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+.clock {
+  padding: 5px;
+  font-size: 1.3rem;
+
+}
 
 .js-weather {
   border: 1px solid #000;
@@ -64,6 +72,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 10px;
 
 }
 .weather {
@@ -90,6 +99,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 10px;
 
 }
 .form-greeting {
