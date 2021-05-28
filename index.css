@@ -57,7 +57,7 @@ body {
 }
 
 .js-weather {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   flex: auto;
   width: 50%;
   height: 70%;
@@ -82,7 +82,7 @@ body {
 }
 
 .js-greeting-toDoList {
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   flex: auto;
   align-self: flex-end;
   width: 50%;
@@ -92,9 +92,9 @@ body {
 }
 
 .inner-greeting-toDoList {
-  border: 1px solid #000;
-  width: 75%;
-  height: 50%;
+  /* border: 1px solid #000; */
+  width: 100%;
+  height: 80%;
   position: absolute;
   top: 50%;
   left: 50%;
