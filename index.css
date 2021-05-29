@@ -35,7 +35,7 @@ body {
   position: relative;
 }
 .inner-calender-clock {
-  border: 1px solid #000;
+  border: 8px solid white;
   width: 70%;
   height: 70%;
   position: absolute;
@@ -65,7 +65,7 @@ body {
 
 }
 .inner-weather {
-  border: 1px solid #000;
+  border: 8px solid white;
   width: 75%;
   height: 50%;
   position: absolute;
