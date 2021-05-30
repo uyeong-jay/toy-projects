@@ -2,6 +2,7 @@ body {
   width: 1900px;
   height: 1200px;
   position: relative;
+  background-color: #7efff5;
 }
 .container {
   display: flex;
@@ -18,6 +19,8 @@ body {
 }
 
 .container .bgImages {
+  border: 8px solid white;
+
   width: inherit;
   height: inherit;
   object-fit: cover;
