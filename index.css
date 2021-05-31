@@ -108,12 +108,34 @@ body {
 .form-greeting {
   text-align: center;
 
+  
 }
+
+.form-greeting input {
+  border: 8px solid white;
+  border-radius: 10px;
+}
+
+.greeting {
+  /* display: inline-block; */
+  border: 8px solid white;
+  text-align: center;
+  border-radius: 10px;
+
+}
+
 .form-toDoList {
   text-align: center;
-
+  padding: 30px;
 }
 
+.form-toDoList input {
+  border: 8px solid white;
+  border-radius: 10px;
+}
+.form-toDoList .toDoList li {
+
+}
 
 .colon1 {
   animation: b 1s linear infinite;
