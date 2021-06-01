@@ -1,8 +1,9 @@
 body {
-  width: 1900px;
-  height: 1200px;
+  width: 1000px;
+  height: 1000px;
   position: relative;
   background-color: #7efff5;
+
 }
 .container {
   display: flex;
@@ -15,6 +16,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color:white;
 
 }
 
@@ -112,16 +114,17 @@ body {
 }
 
 .form-greeting input {
-  border: 8px solid white;
+  /* border: 8px solid white; */
   border-radius: 10px;
 }
 
 .greeting {
   /* display: inline-block; */
-  border: 8px solid white;
+  /* border: 8px solid white; */
   text-align: center;
   border-radius: 10px;
-
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .form-toDoList {
