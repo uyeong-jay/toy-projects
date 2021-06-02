@@ -3,7 +3,6 @@ body {
   height: 1000px;
   position: relative;
   background-color: #7efff5;
-
 }
 .container {
   display: flex;
@@ -82,8 +81,9 @@ body {
 }
 .weather {
   display: inline-block;
-  text-align: center;
-  padding: 40px;
+  /* text-align: center; */
+  padding-top: 38px;
+  padding-left: 20px;
 }
 
 .js-greeting-toDoList {
