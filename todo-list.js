@@ -30,7 +30,7 @@ export function createToDo(text) {
   li.appendChild(span);
   li.appendChild(delBtn);
   span.textContent = text;
-  delBtn.textContent = "💥";
+  delBtn.textContent = "🔴";
   delBtn.addEventListener("click", delToDo);
   const newId = toDos.length + 1;
   li.id = newId;
