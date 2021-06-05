@@ -27,7 +27,7 @@ export function welcome(name) {
   greeting.textContent = `Welcome ${name} 🤗 `;
 }
 
-export function loadname() {
+export function loadName() {
   const getUserName = localStorage.getItem(USER_LS);
   if (getUserName === null) {
     askForName();
@@ -37,7 +37,7 @@ export function loadname() {
 }
 
 export function initName() {
-  loadname();
+  loadName();
 }
 
 initName();

@@ -14,7 +14,7 @@ export function getWeather(lat, lon) {
       const temp = json.main.temp;
       const temp_max = json.main.temp_max;
       const temp_min = json.main.temp_min;
-      weather.innerHTML = `국가 : ${country}<br>지역 : ${place}<br>현재온도 : ${temp}°<br>최고온도 : ${temp_max}°<br> 최저온도 : ${temp_min}°`;
+      weather.innerHTML = `국가 : ${country}<br>사는 곳 : ${place}<br>현재온도 : ${temp}°<br>최고온도 : ${temp_max}°<br> 최저온도 : ${temp_min}°`;
     })
 }
 

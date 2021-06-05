@@ -5,7 +5,7 @@ import {
   handleGreetingSumit,
   askForName,
   welcome,
-  loadname,
+  loadName,
   initName
 } from './greeting.js';
 
