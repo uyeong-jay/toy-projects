@@ -1,2 +1,2 @@
 # Todo-app
-Todo-app with clock and weather
+Todo-app with clock and weather using Vanilla JS
