@@ -4,6 +4,7 @@ body {
   position: relative;
   background-color: #7efff5;
 }
+
 .container {
   display: flex;
   flex-flow : column wrap;
@@ -14,9 +15,7 @@ body {
   position: absolute; 
   top: 5%;
   left: 5%;
-  /* transform: translate(-50%, -50%); */
   color:white;
-
 }
 
 .container .bgImages {
@@ -31,14 +30,13 @@ body {
 }
 
 .js-calender-clock {
-  /* border: 1px solid #000; */
   flex: auto;
   width: 50%;
   height: 30%;
   position: relative;
 }
+
 .inner-calender-clock {
-  /* border: 1px solid #000; */
   border: 8px solid white;
   width: 70%;
   height: 70%;
@@ -51,24 +49,24 @@ body {
   padding: 19px;
   border-radius: 10px;
 }
+
 .calender {
   padding: 5px;
   font-size: 1.3rem;
 }
+
 .clock {
   padding: 5px;
   font-size: 1.3rem;
-
 }
 
 .js-weather {
-  /* border: 1px solid #000; */
   flex: auto;
   width: 50%;
   height: 70%;
   position: relative;
-
 }
+
 .inner-weather {
   border: 8px solid white;
   width: 75%;
@@ -78,27 +76,23 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-
 }
+
 .weather {
   display: inline-block;
-  /* text-align: center; */
   padding-top: 38px;
   padding-left: 20px;
 }
 
 .js-greeting-toDoList {
-  /* border: 1px solid #000; */
   flex: auto;
   align-self: flex-end;
   width: 50%;
   height: 50%;
   position: relative;
-
 }
 
 .inner-greeting-toDoList {
-  /* border: 1px solid #000; */
   width: 100%;
   height: 80%;
   position: absolute;
@@ -106,32 +100,25 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 10px;
-
 }
+
 .form-greeting {
   text-align: center;
-
-  
 }
 
-/* 이름이 길어질경우는? maxlength 추가? */
 .form-greeting input {
   border: 8px solid white;
   border-radius: 10px;
 }
 
 .greeting {
-  /* display: inline-block; */
-  /* border: 1px solid #000; */
   text-align: center;
-  /* border-radius: 10px; */
   margin-right: 10px;
   font-size: 1.5rem;
   font-weight: 600;
 }
 
 .form-toDoList {
-  /* border: 1px solid #000; */
   text-align: center;
   padding: 30px;
 }
@@ -142,19 +129,18 @@ body {
 }
 
 .toDoList {
-  /* border: 1px solid #000; */
   width: 90%;
 }
 
 .toDoList li {
-  /* border: 1px solid #000; */
   margin-top: 7px;
   margin-left: 20px;
 }
+
 .toDoList li span {
-  /* border: 1px solid #000; */
   margin-right: 8px;
 }
+
 .toDoList li button {
   border-radius: 10px;
   border: 1px solid white;
