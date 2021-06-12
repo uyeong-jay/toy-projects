@@ -28,5 +28,8 @@
     "babel-loader": "^8.2.2",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.0"
-  }
+  },
+  "browserslist": [
+    "> 5% in KR"
+  ]
 }
