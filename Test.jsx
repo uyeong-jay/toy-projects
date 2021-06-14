@@ -1,9 +1,19 @@
-const React = require('react');
-const {Component} = React;
+// const React = require('react');
+// const {Component} = React;
+import React, {Component} from 'react';
 
 class Test extends Component {
-  state = {};
-  render = {};
+  state = {
+    
+  };
+  
+  render() {
+    return (
+      <>
+        
+      </>
+    );
+  }
 }
 
-module.exports = Test;
+export default Test;
