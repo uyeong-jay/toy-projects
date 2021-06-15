@@ -36,7 +36,7 @@ module.exports = {
     filename: 'app.js',
     publicPath: '/dist/',
   },
-  devSqerver: {
+  devServer: {
     publicPath: '/dist/',
     hot: true,
   }
