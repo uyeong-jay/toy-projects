@@ -3,7 +3,8 @@ webpack-setting on React!!<br>
 npm init <br>
 npm install react react-dom <br>
 npm install -D webpack webpack-cli <br>
-=> -D 는 개발용으로 사용한다는 뜻
+=> -D or -dev 는 개발용으로 사용한다는 뜻
+=> 
 
 
  
