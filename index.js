@@ -60,8 +60,8 @@ const checkWinner = (target) => { // 승자인 경우들
   }
   if (
     rows[0][2].textContent === turn &&
-    rows[2][0].textContent === turn &&
-    rows[1][1].textContent === turn 
+    rows[1][1].textContent === turn &&
+    rows[2][0].textContent === turn 
   ) {
     hasWinner = true;
   }
@@ -73,8 +73,22 @@ const checkWinnerAndDraw = (target) => { // 승자판단
   if (hasWinner) {
     $result.textContent = `${turn}님이 승!`
     $table.removeEventListener('click', tableCallback);
+    return; // 함수까지 확실히 끝내기
   }
 };
+
+const computerSelect = (turn) => {
+  if(turn === 'X') {
+    const emptyCells = rows.flat().filter((v) => !v.textContent)
+    const randomCells = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+    if(emptyCells) {
+      randomCells.textContent = turn;
+    }
+  } else {
+    
+  }
+
+}
 
 const tableCallback = (event) => {
   // console.log(event.target);2
@@ -82,7 +96,9 @@ const tableCallback = (event) => {
     console.log('넣어짐')
     event.target.textContent = turn; 
     checkWinnerAndDraw(event.target); // target은 td 
+    //event.targe을 인자에 넣으면 해당 target을 인수ㄹ로 넘길수있다
     turn = turn === 'O' ? 'X' : 'O'; // 턴 바꿈
+    computerSelect(turn);
   } else {
     console.log('채워진곳')
   }
