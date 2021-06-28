@@ -68,6 +68,11 @@ const checkWinner = (target) => { // 승자인 경우들
   return hasWinner;
 };
 
+// const checkDraw = () => {
+//   $result.textContent = '비김';
+//   return;
+// }
+
 const checkWinnerAndDraw = (target) => { // 승자판단
   const hasWinner = checkWinner(target);
   if (hasWinner) {
@@ -77,17 +82,14 @@ const checkWinnerAndDraw = (target) => { // 승자판단
   }
 };
 
-const computerSelect = (turn) => {
-  if(turn === 'X') {
-    const emptyCells = rows.flat().filter((v) => !v.textContent)
-    const randomCells = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+const computerSelect = (turn, event) => {
+    const emptyCells = rows.flat().filter((v) => !v.textContent);
+    const randomCells = emptyCells[Math.floor(Math.random() * emptyCells.length)];
     if(emptyCells) {
-      randomCells.textContent = turn;
+      randomCells.textContent = turn; // 분명 다 찼는데도 여기로오네
+    } else {
+      chackDraw();
     }
-  } else {
-    
-  }
-
 }
 
 const tableCallback = (event) => {
@@ -95,14 +97,18 @@ const tableCallback = (event) => {
   if (!event.target.textContent) {
     console.log('넣어짐')
     event.target.textContent = turn; 
-    checkWinnerAndDraw(event.target); // target은 td 
-    //event.targe을 인자에 넣으면 해당 target을 인수ㄹ로 넘길수있다
+    checkWinnerAndDraw(event.target); // 승자체크
+    // target은 td 
+    //event.targe을 인자에 넣으면 해당 target을 인수로 넘길수있다
     turn = turn === 'O' ? 'X' : 'O'; // 턴 바꿈
-    computerSelect(turn);
+    if (turn === 'X') {
+      computerSelect(turn);
+      turn = turn === 'O' ? 'X' : 'O'
+    }
+    
   } else {
-    console.log('채워진곳')
+    console.log('채워진곳');
   }
 };
 
 $table.addEventListener('click', tableCallback); // 이벤트 버블링
-
