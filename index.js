@@ -26,9 +26,9 @@ for (let i=0; i<3; i++) {
 
 let turn = 'O';
 
-const checkWinner = (target) => { // 승자인 경우들
-  const rowIndex = target.parentNode.rowIndex;
-  const cellIndex = target.cellIndex;
+const checkWinner = (currentTarget) => { // 승자인 경우들
+  const rowIndex = currentTarget.parentNode.rowIndex;
+  const cellIndex = currentTarget.cellIndex;
 
   // index로 좌표 표시
   console.log(rowIndex);
@@ -68,47 +68,48 @@ const checkWinner = (target) => { // 승자인 경우들
   return hasWinner;
 };
 
-// const checkDraw = () => {
-//   $result.textContent = '비김';
-//   return;
-// }
 
-const checkWinnerAndDraw = (target) => { // 승자판단
-  const hasWinner = checkWinner(target);
+
+const checkWinnerAndDraw = (currentTarget) => { // 승자판단
+  const hasWinner = checkWinner(currentTarget);
   if (hasWinner) {
     $result.textContent = `${turn}님이 승!`
     $table.removeEventListener('click', tableCallback);
     return; // 함수까지 확실히 끝내기
   }
+  const draw = rows.flat().every((cell) => cell.textContent);
+  if (draw) {
+    $result.textContent = `비김`;
+    return;
+  }
+  turn = turn === 'O' ? 'X' : 'O'; // 턴 바꿈
+  // 왜 여기안에서만 턴을 바꿔야하지?
 };
 
-const computerSelect = (turn, event) => {
+const computerSelect = (turn) => {
     const emptyCells = rows.flat().filter((v) => !v.textContent);
     const randomCells = emptyCells[Math.floor(Math.random() * emptyCells.length)];
     if(emptyCells) {
-      randomCells.textContent = turn; // 분명 다 찼는데도 여기로오네
-    } else {
-      chackDraw();
+      randomCells.textContent = turn;
+      checkWinnerAndDraw(randomCells);
     }
 }
 
 const tableCallback = (event) => {
   // console.log(event.target);2
   if (!event.target.textContent) {
-    console.log('넣어짐')
     event.target.textContent = turn; 
-    checkWinnerAndDraw(event.target); // 승자체크
-    // target은 td 
-    //event.targe을 인자에 넣으면 해당 target을 인수로 넘길수있다
-    turn = turn === 'O' ? 'X' : 'O'; // 턴 바꿈
+    checkWinnerAndDraw(event.target); 
+    // 승자체크
+    // event.targe = td
+
     if (turn === 'X') {
       computerSelect(turn);
-      turn = turn === 'O' ? 'X' : 'O'
     }
-    
   } else {
-    console.log('채워진곳');
+    alert(`이미 채워진 곳입니다.`);
   }
 };
 
-$table.addEventListener('click', tableCallback); // 이벤트 버블링
+$table.addEventListener('click', tableCallback); 
+// 이벤트 버블링
