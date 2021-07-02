@@ -104,20 +104,36 @@ const computerSelect = (turn) => {
     }, 500);
 
 }
+// ******if를 중첩한 형태 ******
+// const tableCallback = (event) => {
+//   if (!event.target.textContent) {
+//     event.target.textContent = turn; 
+//     checkWinnerAndDraw(event.target); 
+//     // 승자체크
+//     // event.targe = td
 
+//     if (turn === 'X') {
+//       computerSelect(turn);
+//     }
+//   } else {
+//     alert(`이미 채워진 곳입니다.`);
+//   }
+// };
+
+// ******if 중첩을 없앤 형태 ******
 const tableCallback = (event) => {
-  if (!event.target.textContent) {
-    event.target.textContent = turn; 
-    checkWinnerAndDraw(event.target); 
-    // 승자체크
-    // event.targe = td
-
-    if (turn === 'X') {
-      computerSelect(turn);
-    }
-  } else {
+  if (event.target.textContent) {
     alert(`이미 채워진 곳입니다.`);
+    return;
+  } 
+  event.target.textContent = turn; 
+  checkWinnerAndDraw(event.target); 
+  // 승자체크
+  // event.targe = td
+  if (turn === 'X') {
+    computerSelect(turn);
   }
+  
 };
 
 
