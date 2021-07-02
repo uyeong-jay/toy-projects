@@ -84,19 +84,28 @@ const checkWinnerAndDraw = (currentTarget) => { // 승자판단
   }
   turn = turn === 'O' ? 'X' : 'O'; // 턴 바꿈
   // 왜 여기안에서만 턴을 바꿔야하지?
+  // 스코프 때문이다.
+  // tableCallback함수안에서 턴을 바꾸면 전역의 let turn = 'X' 으로 바뀜
+  // 따라서 다시 클릭하면 X가 넣어짐.
+  // checkWinnerAndDraw함수안에서 턴을 바꾸면 바뀐당시에만 바뀌고 전역에선 바뀌지 않음
+  // 따라서 다시 클릭하면 그대로 O가 넣어짐.
 };
 
 const computerSelect = (turn) => {
     const emptyCells = rows.flat().filter((v) => !v.textContent);
     const randomCells = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-    if(emptyCells) {
-      randomCells.textContent = turn;
-      checkWinnerAndDraw(randomCells);
-    }
+
+    // 생각하는 척하게 만들기
+    setTimeout(() => {
+      if(emptyCells) {
+        randomCells.textContent = turn;
+        checkWinnerAndDraw(randomCells);
+      }
+    }, 500);
+
 }
 
 const tableCallback = (event) => {
-  // console.log(event.target);2
   if (!event.target.textContent) {
     event.target.textContent = turn; 
     checkWinnerAndDraw(event.target); 
@@ -110,6 +119,8 @@ const tableCallback = (event) => {
     alert(`이미 채워진 곳입니다.`);
   }
 };
+
+
 
 $table.addEventListener('click', tableCallback); 
 // 이벤트 버블링
