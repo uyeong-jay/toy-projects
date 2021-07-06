@@ -1,7 +1,10 @@
+import React from 'react';
+import Table from './Table';
+
 const TicTacToe = () => {
   return (
     <>
-      <div>hell0</div>
+      <Table />
     </>
   )
 }
