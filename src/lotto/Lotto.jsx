@@ -28,20 +28,21 @@ class Lotto extends Component {
   };
 
   const onClickRedo = () => {
-
+    
   }
 
   render() {
     const { WinBalls, BonusBall } = this.state;
     return(
       <>
-        <h4>로또 번호 :</h4>
-        <div>{WinBalls}</div>
+        <h4>당첨 번호 :</h4>
+        <div>{WinBalls.map((v,i) => {
+          return <Ball key={v} number={v} />
+        })}</div>
         <h6>보너스 번호 : </h6>
         <div>{BonusBall}</div>
         <button onclick={onClickRedo}></button>
 
-        <Ball />
       </>
     )
   }
