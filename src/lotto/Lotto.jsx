@@ -23,26 +23,31 @@ function getWinNumbers() {
 class Lotto extends Component {
 
   state = {
-    WinBalls: [],
-    BonusBall: null, 
+    winNumbers: getWinNumbers(),
+    winBalls: [],
+    bonusBall: null, 
   };
 
-  const onClickRedo = () => {
-    
+
+  componentDidMount() {}
+  componentDidUpdate() {}
+  componentWillUnmount() {}
+
+  onClickRedo = () => {
+
   }
 
   render() {
-    const { WinBalls, BonusBall } = this.state;
+    const { winBalls, bonusBall } = this.state;
     return(
       <>
         <h4>당첨 번호 :</h4>
-        <div>{WinBalls.map((v,i) => {
+        <div>{winBalls.map((v,i) => {
           return <Ball key={v} number={v} />
         })}</div>
         <h6>보너스 번호 : </h6>
-        <div>{BonusBall}</div>
-        <button onclick={onClickRedo}></button>
-
+        <div>{bonusBall}</div>
+        <button onclick={onClickRedo}>한번더</button>
       </>
     )
   }
