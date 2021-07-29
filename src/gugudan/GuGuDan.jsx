@@ -8,6 +8,32 @@ class GuGuDan extends Component {
     result: '',
   };
 
+  onChangeUserValue = (e) => {
+    this.setState({
+      userValue: e.currentTarget.value,
+    })
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    if (parseInt(this.state.userValue) === this.state.firstNum * this.state.secondNum) {
+      this.setState({
+        firstNum: Math.ceil(Math.random() * 9),
+        secondNum: Math.ceil(Math.random() * 9),
+        userValue: '',
+        result: '정답입니다!',
+      })
+
+    } else {
+      this.setState({
+        userValue: '',
+        result: '오답입니다!',
+
+      })
+    }
+  }
+
+
   render() {
     const { firstNum,
       secondNum,
@@ -19,7 +45,7 @@ class GuGuDan extends Component {
         <div> {firstNum} x {secondNum} = </div>
         <form onSubmit={this.onSubmit}>
           <input type="number" value={userValue} onChange={this.onChangeUserValue} />
-          <button>입력</button>
+          <button type="submit">입력</button>
         </form>
         <div>{result}</div>
       </>
