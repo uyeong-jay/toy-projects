@@ -43,6 +43,9 @@ class GuGuDanClass extends Component {
 
 
   $input;
+  refInput = (c) => {
+    this.$input = c;
+  }
 
   render() {
     const { firstNum,
@@ -54,7 +57,7 @@ class GuGuDanClass extends Component {
       <>
         <div> {firstNum} x {secondNum} = </div>
         <form onSubmit={this.onSubmit}>
-          <input ref={(c) => { this.$input = c; }} type="number" value={userValue} onChange={this.onChangeUserValue} />
+          <input ref={this.refInput} type="number" value={userValue} onChange={this.onChangeUserValue} />
           <button type="submit">입력</button>
         </form>
         <div>{result}</div>

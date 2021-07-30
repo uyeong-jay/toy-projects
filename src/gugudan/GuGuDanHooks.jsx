@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const GuGuDanHooks = () => {
 
@@ -6,6 +6,7 @@ const GuGuDanHooks = () => {
   const [secondNum, setSecondNum] = useState(Math.ceil(Math.random() * 9));
   const [userValue, setUsertValue] = useState('');
   const [result, setResult] = useState('');
+  const refInput = useRef(null);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -14,9 +15,11 @@ const GuGuDanHooks = () => {
       setSecondNum(Math.ceil(Math.random() * 9));
       setUsertValue('');
       setResult('정답입니다!');
+      refInput.current.focus();
     } else {
       setUsertValue('');
       setResult('오답입니다!');
+      refInput.current.focus();
     }
   };
 
@@ -29,7 +32,7 @@ const GuGuDanHooks = () => {
     <>
       <div>{firstNum} x {secondNum} = </div>
       <form onSubmit={onSubmit}>
-        <input type="number" value={userValue} onChange={onChangeInput} />
+        <input ref={refInput} type="number" value={userValue} onChange={onChangeInput} />
         <button type="submit">입력</button>
       </form>
       <div>{result}</div>
