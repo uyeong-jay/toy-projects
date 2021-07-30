@@ -15,14 +15,20 @@ class GuGuDan extends Component {
   };
 
   onSubmit = (e) => {
+
     e.preventDefault();
-    if (parseInt(this.state.userValue) === this.state.firstNum * this.state.secondNum) {
-      this.setState({
-        firstNum: Math.ceil(Math.random() * 9),
-        secondNum: Math.ceil(Math.random() * 9),
-        userValue: '',
-        result: '정답입니다!',
+
+    if (parseInt(this.state.userValue) === this.state.firstNum * this.state.secondNum) 
+    {
+      this.setState((prevState) => {
+        return {
+          firstNum: Math.ceil(Math.random() * 9),
+          secondNum: Math.ceil(Math.random() * 9),
+          userValue: '',
+          result: '정답입니다!' + prevState.userValue, //현재값 사용됨
+        };
       })
+      this.$input.focus();
 
     } else {
       this.setState({
@@ -30,9 +36,13 @@ class GuGuDan extends Component {
         result: '오답입니다!',
 
       })
+      this.$input.focus();
+
     }
   }
 
+
+  $input;
 
   render() {
     const { firstNum,
@@ -44,7 +54,7 @@ class GuGuDan extends Component {
       <>
         <div> {firstNum} x {secondNum} = </div>
         <form onSubmit={this.onSubmit}>
-          <input type="number" value={userValue} onChange={this.onChangeUserValue} />
+          <input ref={(c) => { this.$input = c; }} type="number" value={userValue} onChange={this.onChangeUserValue} />
           <button type="submit">입력</button>
         </form>
         <div>{result}</div>
