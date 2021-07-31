@@ -1,6 +1,6 @@
-const React = rquire('react');
-const ReactDom = rquire('react-dom');
+const React = require('react');
+const ReactDom = require('react-dom');
 
 const TestWebpack = require('./TestWebpack'); 
 
-ReactDom.render(<TestWebpack />, documnet.querySelector('#root')); //화면에 그려줌
+ReactDom.render(<TestWebpack />, document.querySelector('#root')); //화면에 그려줌

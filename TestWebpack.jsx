@@ -3,10 +3,12 @@ const { Component } = React;
 
 class TestWebpack extends Component {
   state = {
-    text: 'Hello webpack'
+    text: 'Hello webpack',
   }
 
   render() {
+    const {text} = this.state;
+    
     return(
       <div>{text}</div>
     );
