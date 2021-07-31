@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   name: 'test-webpack',
   mode: 'development', // 배포용: 'production' 
-  devtool: 'evel',
+  devtool: 'eval',
   resolve: {
     extensions: [ '.jsx', '.js' ],
   },
@@ -14,17 +14,17 @@ module.exports = {
 
   module: {
     rules: [{
-      test: /\.jsx?/,
-      loader: 'babal-loader',
-      option: {
+      test: /\.jsx?$/,
+      loader: 'babel-loader',
+      options: {
         presets: [ '@babel/preset-env', '@babel/preset-react' ],
-        plugins: [],
+        // plugins: [''],
       },
     }],
   },
 
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, './dist'),
     filename: 'app.js',
   },
 
