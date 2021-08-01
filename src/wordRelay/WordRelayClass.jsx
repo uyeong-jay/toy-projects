@@ -18,6 +18,7 @@ class WordRelayClass extends Component {
           word: '',
         };
       }) ;
+      this.$input.focus();
     } else if( newWord && newWord[newWord.length-1] === word[0]) {
       this.setState((prevState) => {
         return {
@@ -27,6 +28,7 @@ class WordRelayClass extends Component {
           word: '',
         };
       });
+      this.$input.focus();
     } else {
       this.setState({
         result: '올바르지 않은 단어 입니다!',
@@ -40,6 +42,11 @@ class WordRelayClass extends Component {
     });
   }
 
+  $input;
+  onRefInput = (c) => {
+    this.$input = c;
+  }
+
   render() {
     const { word, newWord, result, score } = this.state;
 
@@ -47,7 +54,7 @@ class WordRelayClass extends Component {
       <>
         <form onSubmit={this.onSubmit}>
           <div>제시어 : {newWord}</div>
-          <input type='text' value={word} onChange={this.onChangeValue} />
+          <input ref={this.onRefInput} type='text' value={word} onChange={this.onChangeValue} />
           <button type="submit">입력</button>
         </form>
         <div>결과: {result}</div>
