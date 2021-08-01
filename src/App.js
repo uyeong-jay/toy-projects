@@ -1,7 +1,7 @@
-// import Lotto from './lotto/Lotto';
 import GuGuDanClass from './gugudan/GuGuDanClass';
 import GuGuDanHooks from './gugudan/GuGuDanHooks';
 import WordRelayClass from './wordRelay/WordRelayClass';
+import WordRelayHooks from './wordRelay/WordRelayHooks';
 
 
 function App() {
@@ -20,9 +20,7 @@ function App() {
       <WordRelayClass />
       <br />
       <span>Hooks Version</span>
-
-
-      {/* <Lotto /> */}
+      <WordRelayHooks />
     </>
   );
 }
