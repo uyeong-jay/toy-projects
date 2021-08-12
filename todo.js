@@ -52,3 +52,13 @@ const store = createStore(reducer);
 //subscribe
 
 
+const createToDo = (e) => {
+  e.preventDefault();
+  const liToDo = document.createElement('li');
+  const inputToDoValue = inputToDo.value;
+  liToDo.textContent = inputToDoValue;
+  inputToDo.value = '';
+  ulToDo.append(liToDo);
+}
+
+formToDo.addEventListener('submit', createToDo);
