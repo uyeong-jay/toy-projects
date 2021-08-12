@@ -27,14 +27,28 @@ const deleteToDo = (deleteId) => {
 
 
 //reducer
+const reducer = (state=[], action) => {
+  switch(action.type) {
+    case ADD_TODO :
+      return [...state, {text: action.text, id: action.id}];
+    case DELETE_TODO :
+      return state.filter((v) => action.id !== v.id);
+      // mutate를 하지 못해서 새로운 배열을 반환해주는 filter메소드를 씀
+    default :
+      return state;
+  }
+
+}
 
 
 
 //store
-
+const store = createStore(reducer);
 
 
 //dispatch
 
 
 //subscribe
+
+
