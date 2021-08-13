@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const WordRelayHooks = () => {
   const [word, setWord] = useState('');
@@ -12,6 +12,7 @@ const WordRelayHooks = () => {
     if (!newWord && word.length === 3) {
       setNewWord((prev) => word);
       setWord('');
+      onRefInput.current.focus();
     } else if (
       newWord 
       && word.length === 3 
@@ -21,11 +22,12 @@ const WordRelayHooks = () => {
         setWord('');
         setResult('정답입니다!');
         setScore((prev) => score+1);
+        onRefInput.current.focus();
     } else {
       setWord('');
       setResult('오답입니다!');
       setScore((prev) => score-1);
-      
+      onRefInput.current.focus();
     }
   }
 
