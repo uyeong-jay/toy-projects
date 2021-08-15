@@ -8,14 +8,15 @@ let operator = '';
 
 const onClickNumber = (e) => {
   const clikedNum = e.currentTarget.textContent;
-  if (operator) {
-    if (!secondNum) {
-      $result.value = '';
-    }
-    secondNum += clikedNum //데이터
-  } else {
+  if (!operator) {
     firstNum += clikedNum; //데이터
+    $result.value += clikedNum;//화면, 공통
+    return;
   }
+  if (!secondNum) {
+    $result.value = '';
+  }
+  secondNum += clikedNum //데이터
   $result.value += clikedNum;//화면, 공통
 }
 
@@ -23,7 +24,6 @@ const onClickOperator = (e) => {
   const clickedOperator = e.currentTarget.textContent;
   operator += clickedOperator;
   $operator.value = clickedOperator;
-  
 }
 
 
