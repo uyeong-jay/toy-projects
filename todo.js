@@ -1,6 +1,7 @@
 //createStore
 import { createStore } from 'redux';
 
+
 const formToDo = document.querySelector('#formToDo');
 const inputToDo = document.querySelector('input');
 const ulToDo = document.querySelector('#ulToDo');
@@ -47,18 +48,39 @@ const store = createStore(reducer);
 
 
 //dispatch
+const dispatchAddToDo = (v) => {
+  store.dispatch(addToDo(v));
+}
+
+
+const createToDo = (arrToDos) => {
+  arrToDos.forEach((toDo) => {
+    const liToDo = document.createElement('li');//생성
+
+    liToDo.textContent = inputToDoValue;//내용
+    
+    inputToDo.value = '';
+    ulToDo.append(liToDo);//위치
+  });
+  
+}
+
+//subscribe(onChange)
+const onChange = () => {
+  const arrayToDos = store.getState();
+  createToDo(arrayToDos);
+}
 
 
 //subscribe
+//dispatch에 의해 변화감지 > onChange 실행
+store.subscribe(onChange);
 
 
-const createToDo = (e) => {
+const handleToDoSubmit = (e) => {
   e.preventDefault();
-  const liToDo = document.createElement('li');
   const inputToDoValue = inputToDo.value;
-  liToDo.textContent = inputToDoValue;
-  inputToDo.value = '';
-  ulToDo.append(liToDo);
+  dispatchAddToDo(inputToDoValue);
 }
 
-formToDo.addEventListener('submit', createToDo);
+formToDo.addEventListener('submit', handleToDoSubmit);
