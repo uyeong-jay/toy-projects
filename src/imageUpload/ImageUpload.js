@@ -1,23 +1,22 @@
-import React, { useCallback, useRef } from 'react';
+import React from 'react';
+import ImageUpload1 from './ImageUpload1';
+import ImageUpload2 from './ImageUpload2';
 
-const ImageUpload1 = () => {
-
-  const onRefInput = useRef(null);
-
-  const onSubmitImageUpload = useCallback((e) => {
-    e.preventDefault();
-    onRefInput.current.click();
-  },[]);
-
-
-  return(
-    <>
-    <form method="post" encType="multipart/form-data" onSubmit={onSubmitImageUpload}>
-      <input type="file" multiple hidden ref={onRefInput}/>
-      <button type="submit">Image Upload</button>
-    </form>
-    </>
-  );
+const ImageUpload = (props) => {
+  let urlSearchParams = new URLSearchParams(props.location.search)
+  console.log(urlSearchParams.get('hello')); 
+  // console.log(props);//history, location, match
+  if(props.match.params.upload === 'upload1') {
+    return <ImageUpload1 />
+  } else if (props.match.params.upload === 'upload2') {
+    return <ImageUpload2 />
+  } else {
+    return(
+      <>
+        Nothing
+      </>
+    );
+  }
 }
 
-export default ImageUpload1;
+export default ImageUpload;
