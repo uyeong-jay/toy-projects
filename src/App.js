@@ -1,9 +1,10 @@
 import React from 'react';
+import ImageUpload1 from './imageUpload/ImageUpload';
 
 const App = () => {
   return (
     <>
-      App
+      <ImageUpload1 />
     </>
   );
 }
