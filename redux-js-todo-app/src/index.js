@@ -29,14 +29,13 @@ const deleteToDo = (deleteId) => {
 }
 
 
-
 //reducer
 const reducer = (state=[], action) => {
   switch(action.type) {
     case ADD_TODO :
       return [...state, {text: action.text, id: action.id}];
     case DELETE_TODO :
-      return state.filter((v) => action.id !== v.id);
+      return state.filter(v => v.id !== action.id);
       // mutate를 하지 못해서 새로운 배열을 반환해주는 filter메소드를 씀
     default :
       return state;
@@ -44,10 +43,20 @@ const reducer = (state=[], action) => {
 
 }
 
+//store
+const store = createStore(reducer);
 
 
-
-
+//dispatch: reducer 실행
+const dispatchAddToDo = (text) => {
+  store.dispatch(addToDo(text));
+}
+const dispatchDeleteToDo = (e, deleteId) => {
+  const target = e.currentTarget.parentNode
+  console.log(target);
+  // const deleteId = 
+  store.dispatch(deleteToDo(deleteId));
+}
 
 
 const createToDo = (arrToDos) => {
@@ -56,19 +65,16 @@ const createToDo = (arrToDos) => {
     const liToDo = document.createElement('li');//생성
     const delbtn = document.createElement('button');
 
-    delbtn.textContent = '❌';
     liToDo.textContent = toDo.text;//내용
+    delbtn.textContent = '❌';
+    delbtn.addEventListener('click', dispatchDeleteToDo);
     inputToDo.value = '';
 
-    liToDo.after(delbtn);//위치
+    liToDo.append(delbtn);//위치
     ulToDo.append(liToDo);
   });
   
 }
-
-//store
-const store = createStore(reducer);
-
 
 
 //subscribe(onChange)
@@ -76,22 +82,11 @@ const onChange = () => {
   const arrayToDos = store.getState();//reducer 현재상태 가져오기
   createToDo(arrayToDos);
 }
-
-
 //subscribe
 //dispatch > reducer > subscribe > onChange 실행
 store.subscribe(onChange);
 
 
-
-
-//dispatch: reducer 실행
-const dispatchAddToDo = (v) => {
-  store.dispatch(addToDo(v));
-}
-const dispatchDeleteToDo = (v) => {
-  store.dispatch(deleteToDo(v));
-}
 
 
 const handleToDoSubmit = (e) => {
