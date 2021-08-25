@@ -51,15 +51,13 @@ const store = createStore(reducer);
 const dispatchAddToDo = (text) => {
   store.dispatch(addToDo(text));
 }
-const dispatchDeleteToDo = (e, deleteId) => {
-  const target = e.currentTarget.parentNode
-  console.log(target);
-  // const deleteId = 
-  store.dispatch(deleteToDo(deleteId));
+const dispatchDeleteToDo = (e) => {
+  const targetId = parseInt(e.currentTarget.parentNode.id);
+  store.dispatch(deleteToDo(targetId));
 }
 
 
-const createToDo = (arrToDos) => {
+const createToDo = (arrToDos) => {//arrToDos: 요소가 객체인 array
   ulToDo.textContent = '';
   arrToDos.forEach((toDo) => {
     const liToDo = document.createElement('li');//생성
@@ -68,6 +66,7 @@ const createToDo = (arrToDos) => {
     liToDo.textContent = toDo.text;//내용
     delbtn.textContent = '❌';
     delbtn.addEventListener('click', dispatchDeleteToDo);
+    liToDo.id = toDo.id;
     inputToDo.value = '';
 
     liToDo.append(delbtn);//위치
