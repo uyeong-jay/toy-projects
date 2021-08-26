@@ -20,25 +20,16 @@ const onClickNumber = (e) => {
   $result.value += clikedNum;//화면, 공통
 }
 
-const onClickOperator = (e) => {
-  if (firstNum) {
-    const clickedOperator = e.currentTarget.textContent;
-    operator = clickedOperator;
-    $operator.value = clickedOperator;
-  }
-}
-
-// -,*./ 는 문자열을 숫자로 바꿔주기 때문에 parseInt()를 적용하지 않아도 됨
-const onClickCalculate = () => {
+const calculate = () => {
   if (operator) {
     switch (operator[0]) {
       case '+':
-        $result.value = parseInt(firstNum) + parseInt(secondNum);
+        $result.value = parseFloat(firstNum) + parseFloat(secondNum);
         break;
       case '-':
         $result.value = firstNum - secondNum;
         break;
-      case '*':
+      case 'x':
         $result.value = firstNum * secondNum;
         break;
       case '/':
@@ -47,9 +38,32 @@ const onClickCalculate = () => {
       default:
         break;
     } 
-    operator = '';
-    $operator.value = '';
+    firstNum = '';
+    firstNum = $result.value;
+    secondNum = '';
+    
   }
+}
+
+const onClickOperator = (e) => {
+  if (firstNum) {
+    const clickedOperator = e.currentTarget.textContent;
+    operator = clickedOperator;
+    $operator.value = clickedOperator;
+  }
+  if (secondNum) {
+    calculate();
+    operator[0] = '';
+  }
+}
+
+
+
+// -,*./ 는 문자열을 숫자로 바꿔주기 때문에 parseInt()를 적용하지 않아도 됨
+const onClickCalculate = () => {
+  calculate();
+  operator = '';
+  $operator.value = '';
 }
 
 const onClickClear = () => {
