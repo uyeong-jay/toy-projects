@@ -16,12 +16,32 @@ for (let i = 0; i < 4; i++) {
 }
 
 
+const tries = [];
+
+
+const checkInput = (inputVal) => {
+  if (inputVal.length !== 4) {
+    return alert('4자리 숫자를 입력해 주세요');
+  }
+  if (new Set(inputVal).size !== 4) {
+    return alert('중복되지 않게 입력해 주세요.');
+  }
+if (tries.includes(input)) {
+    return alert('이미 시도한 값입니다.');
+  }
+  return true;
+}
+
 
 const submitHandler = (e) => {
   e.preventDefault();
   const value = $input.value
   input.value = '';
-  
+  if (checkInput(value)) {
+    tries.push(value);
+  } else {
+    alert('땡!');
+  }
 }
 
 $form.addEventListener('submit', submitHandler);
