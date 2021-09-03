@@ -14,34 +14,43 @@ for (let i = 0; i < 4; i++) {
   answer.push(numbers[index]);
   numbers.splice(index, 1);
 }
+if (answer) {
+  confirm(`숫자야구의 답이 준비되었습니다. 시작하시겠습니까?`);
+
+  const tries = [];
 
 
-const tries = [];
-
-
-const checkInput = (inputVal) => {
-  if (inputVal.length !== 4) {
-    return alert('4자리 숫자를 입력해 주세요');
+  const checkInput = (inputVal) => {
+    if (inputVal.length !== 4) {
+      return alert('4자리 숫자를 입력해 주세요');
+    }
+    if (new Set(inputVal).size !== 4) {
+      return alert('중복되지 않게 입력해 주세요.');
+    }
+  if (tries.includes(input)) {
+      return alert('이미 시도한 값입니다.');
+    }
+    return true;
   }
-  if (new Set(inputVal).size !== 4) {
-    return alert('중복되지 않게 입력해 주세요.');
+
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const inputVal = $input.value
+    input.value = '';
+    if (checkInput(inputVal)) {
+      if (answer.join('') === value) {
+        $logs.textContent = "홈런!";
+        return;
+      }
+      if (tries.length >= 9) {
+        
+      }
+      tries.push(inputVal);
+    } else {
+      alert('땡!');
+    }
   }
-if (tries.includes(input)) {
-    return alert('이미 시도한 값입니다.');
-  }
-  return true;
+
+  $form.addEventListener('submit', submitHandler);
 }
-
-
-const submitHandler = (e) => {
-  e.preventDefault();
-  const value = $input.value
-  input.value = '';
-  if (checkInput(value)) {
-    tries.push(value);
-  } else {
-    alert('땡!');
-  }
-}
-
-$form.addEventListener('submit', submitHandler);
