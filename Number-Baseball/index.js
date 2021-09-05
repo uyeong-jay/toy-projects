@@ -15,17 +15,12 @@ for (let i = 0; i < 4; i++) {
   numbers.splice(index, 1);
 }
 
-
 const tries = [];
 let strike = 0;
 let ball = 0;
 let out = 0;
 
-const compareInput = (inputVal) => {
-  if (answer.join('') === inputVal) {
-    $logs.textContent = "홈런! ";
-    return;
-  }
+const compareInput = (inputVal) => { //strike, ball, out 검사
   for (let i = 0; i < answer.length; i++) {
     const index = inputVal.indexOf(answer[i]);
     if (index > -1) {
@@ -41,18 +36,22 @@ const compareInput = (inputVal) => {
 }
 
 
-const manageLogs = (inputVal) => {
-  tries.push(inputVal);
-  compareInput(inputVal);
+const manageLogs = (inputVal) => {//결과 기록
   $logs.setAttribute('style', 'white-space: pre;');
-  $logs.textContent += `${inputVal},${answer.join('')} => strike :${strike}, ball :${ball}, out :${out}\r\n`;
-  strike = 0;
-  ball = 0;
-  out = 0;
-  if (tries.length >= 10) {
-    $logs.textContent = `기회 초과! 실패입니다! \n 답은 : ${answer.join('')} 였습니다.`;
+  if (answer.join('') === inputVal) {
+    $logs.textContent += "홈런!";
+    return;
+  } else {
+    $logs.textContent += `${inputVal},${answer.join('')} => strike :${strike}, ball :${ball}, out :${out}\r\n`;
+    strike = 0;
+    ball = 0;
+    out = 0;
+  }
+  if (tries.length >= 9) {
+    $logs.textContent += `실패입니다! \n답은 : ${answer.join('')} 였습니다.`;
     return;
   }
+  tries.push(inputVal);
 }
 
 
@@ -66,6 +65,7 @@ const checkInput = (inputVal) => {
   if (tries.includes(input)) {
     return alert('이미 시도한 값입니다.');
   }
+  compareInput(inputVal);
   manageLogs(inputVal);
 }
 
