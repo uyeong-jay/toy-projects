@@ -14,6 +14,7 @@ for (let i = 0; i < 4; i++) {
   answer.push(numbers[index]);
   numbers.splice(index, 1);
 }
+console.log(answer.join(''));
 
 const tries = [];
 let strike = 0;
@@ -39,10 +40,11 @@ const compareInput = (inputVal) => { //strike, ball, out 검사
 const manageLogs = (inputVal) => {//결과 기록
   $logs.setAttribute('style', 'white-space: pre;');
   if (answer.join('') === inputVal) {
-    $logs.textContent += "홈런!";
+    $logs.textContent += "홈러어어어어어언!!! 🥳🥳";
+    tries.push(inputVal);
     return;
   } else {
-    $logs.textContent += `${inputVal},${answer.join('')} => strike :${strike}, ball :${ball}, out :${out}\r\n`;
+    $logs.textContent += `${inputVal} => strike: ${strike}, ball: ${ball}, out: ${out}\r\n`;
     strike = 0;
     ball = 0;
     out = 0;
@@ -55,7 +57,7 @@ const manageLogs = (inputVal) => {//결과 기록
 }
 
 
-const checkInput = (inputVal) => {
+const checkInput = (inputVal) => {//입력값 필터링
   if (inputVal.length !== 4) {
     return alert('4자리 숫자를 입력해 주세요');
   }
@@ -71,11 +73,17 @@ const checkInput = (inputVal) => {
 
 
 const submitHandler = (e) => {
-  e.preventDefault();
-  const inputValue = $input.value; //데이터
-  console.log(inputValue);
-  input.value = ''; //화면
-  checkInput(inputValue);
+  if (tries[tries.length-1] !== answer.join('')) {
+    e.preventDefault();
+    const inputValue = $input.value; //데이터
+    input.value = ''; //화면
+    checkInput(inputValue);
+    console.log(tries);
+  } else {
+    alert('새로 시작됩니다!');
+  }
 }
 
 $form.addEventListener('submit', submitHandler);
+
+
