@@ -15,11 +15,7 @@ let newWord; // 입력된 단어
 let currentPlayer = 1;
 
 
-
-
-
-
-if (number) {
+if (totalPlayers && "number" === typeof totalPlayers) {
   const onInput = (e) => {
     newWord = e.currentTarget.value;
   };
@@ -28,11 +24,9 @@ if (number) {
     if (currentPlayer < totalPlayers) {
       currentPlayer++;
       $order.textContent = currentPlayer;
-      console.log(currentPlayer);
     } else {
       currentPlayer = 1; // 초기화
       $order.textContent = currentPlayer;
-  
     }
   };
   
@@ -52,7 +46,7 @@ if (number) {
     }
   };
   
-  $input.addEventListener('input', onInput);
+  $input.addEventListener('input', onInput);//사용자 입력값 저장하기 위함
   $button.addEventListener('click', onClickButton);
 }
 
