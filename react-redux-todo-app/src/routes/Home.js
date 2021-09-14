@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actionCreators from '../store';
 
 const Home = () => {
   return(
@@ -8,4 +10,12 @@ const Home = () => {
   )
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {}
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (Home);
