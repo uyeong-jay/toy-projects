@@ -36,7 +36,7 @@ const reducer = (state=[], action) => {
 const store = createStore(reducer);
 
 //action-creators
-const actionCreators = {
+export const actionCreators = {
   addToDo,
   deleteToDo,
 };
