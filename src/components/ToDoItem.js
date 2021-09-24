@@ -91,4 +91,3 @@ const ToDoItem = ({ text, id, done }) => {
 };
 
 export default memo(ToDoItem);
-//TodoContext 에서 관리하고 있는 state 가 바뀔 때 TodoCreate 의 불필요한 리렌더링을 방지 할 수 있습니다. 만약 우리가 Context 를 하나만 만들었다면 이런 최적화를 하지 못하게 됩니다.
