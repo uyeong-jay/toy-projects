@@ -3,6 +3,7 @@ import ToDoTemplete from './components/ToDoTemplete';
 import ToDoHead from './components/ToDoHead';
 import ToDoList from './components/ToDoList';
 import ToDoCreate from './components/ToDoCreate';
+import ToDoProvider from './ToDoContext';
 
 import { createGlobalStyle } from 'styled-components';
 
@@ -16,12 +17,14 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <ToDoTemplete>
-      <GlobalStyle />
-      <ToDoHead />
-      <ToDoList />
-      <ToDoCreate />
-    </ToDoTemplete>
+    <ToDoProvider>
+      <ToDoTemplete>
+        <GlobalStyle />
+        <ToDoHead />
+        <ToDoList />
+        <ToDoCreate />
+      </ToDoTemplete>
+    </ToDoProvider>
   );
 }
 
