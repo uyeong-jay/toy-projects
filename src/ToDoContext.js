@@ -1,53 +1,53 @@
-import React, { createContext, useReducer } from 'react';
-import { CREATE, REMOVE, TOGGLE } from './actions/types';
+import React, { useReducer, useRef } from "react";
+import { CREATE, REMOVE, TOGGLE } from "./actions/types";
+import { ToDoState, ToDoDispatch, ToDoNewId } from "./hooks/useToDoContext";
 
 const initialToDos = [
-  {
-    id: 1,
-    text: '리액트',
-    done: true,
-  },
-  {
-    id: 2,
-    text: '리액트공',
-    done: true,
-  },
-  {
-    id: 3,
-    text: '리액트공부',
-    done: false,
-  }
+  // {
+  //   id: 1,
+  //   text: "리액트",
+  //   done: true,
+  // },
+  // {
+  //   id: 2,
+  //   text: "리액트공",
+  //   done: true,
+  // },
+  // {
+  //   id: 3,
+  //   text: "리액트공부",
+  //   done: false,
+  // },
 ];
 
-const reducer = (state, action) => {
-  switch(action.type) {
+const toDoReducer = (state, action) => {
+  switch (action.type) {
     case CREATE:
       return state.concat(action.data);
     case REMOVE:
-      return state.filter((v,i) => v.id !== action.data);
+      return state.filter((v, i) => v.id !== action.data);
     case TOGGLE:
-      return state.map((v,i) => v.id === action.data 
-        ? { ...v, done: !v.done } : v );
+      return state.map((v, i) =>
+        v.id === action.data ? { ...v, done: !v.done } : v
+      );
     default:
+      //미처리된 action type 에러
       throw new Error(`Unhandled action type: ${action.type}`);
   }
 };
 
-export const ToDoState = createContext(null);
-export const ToDosDispatch = createContext(null);
+//감싸주는 컴포넌트 with children
+const ToDoProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(toDoReducer, initialToDos);
+  const newId = useRef(state.length);
 
-const ToDoContext = ({children}) => {
-
-  const [state, dispatch] = useReducer(reducer, initialToDos);
-  
-
-  return(
+  return (
     <ToDoState.Provider value={state}>
-      <ToDosDispatch.Provider value={dispatch}>
-        {children}
-      </ToDosDispatch.Provider>
+      <ToDoDispatch.Provider value={dispatch}>
+        <ToDoNewId.Provider value={newId}>{children}</ToDoNewId.Provider>
+      </ToDoDispatch.Provider>
     </ToDoState.Provider>
-  )
-}
+  );
+};
 
-export default ToDoContext;
+export default ToDoProvider;
