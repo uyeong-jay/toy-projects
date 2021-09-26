@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback, memo } from "react";
 
-import styled, { css, keyframes } from 'styled-components';
-import { MdAdd } from 'react-icons/md';
+import styled, { css, keyframes } from "styled-components";
+import { MdAdd } from "react-icons/md";
+import { useToDoDispatch, useToDoNewId } from "../hooks/useToDoContext";
+import { createToDo } from "../actions/actions";
 
 const slideUp = keyframes`
   from {
@@ -63,8 +65,9 @@ const CircleAddBtn = styled.button`
     background: #20c997;
   }
 
+  //버튼 회전
   transition: 0.125s all ease-in;
-  ${({add}) =>
+  ${({ add }) =>
     add &&
     css`
       background: #ff6b6b;
@@ -75,32 +78,59 @@ const CircleAddBtn = styled.button`
         background: #fa5252;
       }
       transform: translate(-50%, 50%) rotate(45deg);
-  `}
-  
+    `}
 `;
 
 const ToDoCreate = () => {
+  const toDoDispatch = useToDoDispatch();
+  const toDoNewId = useToDoNewId();
+
   const [add, setAdd] = useState(false);
+  const [toDo, setToDo] = useState("");
 
-  const onToggleAddBtn = () => {
+  const onToggleAddBtn = useCallback(() => {
     setAdd(() => !add);
-  }
+  }, [add]);
 
-  
+  const onSubmitToDo = useCallback(
+    (e) => {
+      e.preventDefault();
+      toDoDispatch(
+        createToDo({
+          id: toDoNewId.current,
+          text: toDo,
+          done: false,
+        })
+      );
+      setToDo("");
+      toDoNewId.current += 1;
+      // setAdd(false);
+    },
+    [toDo, toDoDispatch, toDoNewId]
+  );
 
-  return(
+  const onChangeToDo = useCallback((e) => {
+    setToDo(e.currentTarget.value);
+  }, []);
+
+  return (
     <>
-      {add &&
-      <InputForm>
-        <Input autoFocus placeholder="할 일을 입력후, Enter를 눌러주세요."></Input>
-      </InputForm>}
-      <CircleAddBtn onClick={onToggleAddBtn} add={add}><MdAdd /></CircleAddBtn>
+      {add && (
+        <InputForm onSubmit={onSubmitToDo}>
+          <Input
+            value={toDo}
+            onChange={onChangeToDo}
+            autoFocus
+            placeholder="할 일을 입력후, Enter를 눌러주세요."
+          ></Input>
+        </InputForm>
+      )}
+      <CircleAddBtn onClick={onToggleAddBtn} add={add}>
+        <MdAdd />
+      </CircleAddBtn>
     </>
-  )
-}
+  );
+};
 
-export default ToDoCreate;
-
-
-
-
+export default memo(ToDoCreate);
+// export default ToDoCreate;
