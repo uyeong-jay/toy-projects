@@ -1,8 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import ToDoItem from "./ToDoItem";
+
+import styled from "styled-components";
+import { useToDoState } from "../hooks/useToDoContext";
 
 const ToDoListBlock = styled.div`
-  border: 1px solid black;
   flex: 0.75;
   padding: 25px 25px;
   padding-bottom: 50px;
@@ -10,12 +12,15 @@ const ToDoListBlock = styled.div`
 `;
 
 const ToDoList = () => {
+  const toDoState = useToDoState();
 
-  return(
+  return (
     <ToDoListBlock>
-      ToDoList
+      {toDoState.map((v, i) => (
+        <ToDoItem key={v.id} {...v} />
+      ))}
     </ToDoListBlock>
   );
-}
+};
 
 export default ToDoList;
