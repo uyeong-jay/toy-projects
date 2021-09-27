@@ -5,6 +5,7 @@ const ToDoTempleteBlock = styled.div`
   display: flex;
   flex-direction: column;
   aglin-itmes: center;
+  position: relative; //ToDoCreate
   width: 500px;
   height: 750px;
   margin: 0 auto;
