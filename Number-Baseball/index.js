@@ -3,10 +3,7 @@ const $input = document.querySelector('#input');
 const $button = document.querySelector('#button');
 const $logs = document.querySelector('#logs');
 
-const numbers = []; // 1~9
-for (let n = 0; n < 9; n++) {
-  numbers.push(n+1);
-}
+const numbers = Array.from({ length: 9 }, (v,i) => i+ 1);
 
 const answer = []; // numbers의 1~9중 랜덤하게 4개만 answer에 넣기
 for (let i = 0; i < 4; i++) {
@@ -22,8 +19,8 @@ let ball = 0;
 let out = 0;
 
 const compareInput = (inputVal) => { //strike, ball, out 검사
-  for (let i = 0; i < answer.length; i++) {
-    const index = inputVal.indexOf(answer[i]);
+  answer.forEach((v,i) => {
+    const index = inputVal.indexOf(v);
     if (index > -1) {
       if (inputVal[index] === answer.join('')[index]) {
         strike++;
@@ -33,14 +30,14 @@ const compareInput = (inputVal) => { //strike, ball, out 검사
     } else {
       out++;
     }
-  }
+  })
 }
 
 
 const manageLogs = (inputVal) => {//결과 기록
   $logs.setAttribute('style', 'white-space: pre;');
   if (answer.join('') === inputVal) {
-    $logs.textContent += "홈러어어어어어언!!! 🥳🥳";
+    $logs.textContent += `${answer.join('')} => 홈러어어어어어언!!! 🥳🥳`;
     tries.push(inputVal);
     return;
   } else {
@@ -50,7 +47,7 @@ const manageLogs = (inputVal) => {//결과 기록
     out = 0;
   }
   if (tries.length >= 9) {
-    $logs.textContent += `실패입니다! \n답은 : ${answer.join('')} 였습니다.`;
+    $logs.textContent += `실패입니다! \n답은 : ${answer.join('')} 였습니다!`;
     return;
   }
   tries.push(inputVal);
@@ -58,7 +55,7 @@ const manageLogs = (inputVal) => {//결과 기록
 
 
 const checkInput = (inputVal) => {//입력값 필터링
-  if (inputVal.length !== 4) {
+  if (number && inputVal.length !== 4) {
     return alert('4자리 숫자를 입력해 주세요');
   }
   if (new Set(inputVal).size !== 4) {
