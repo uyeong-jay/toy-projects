@@ -34,7 +34,7 @@ class Lotto extends Component {
   componentWillUnmount() {}
 
   onClickRedo = () => {
-
+    return;
   }
 
   render() {
@@ -47,7 +47,7 @@ class Lotto extends Component {
         })}</div>
         <h6>보너스 번호 : </h6>
         <div>{bonusBall}</div>
-        <button onclick={onClickRedo}>한번더</button>
+        <button /* onclick={onClickRedo} */>한번더</button>
       </>
     )
   }
