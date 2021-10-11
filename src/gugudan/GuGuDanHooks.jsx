@@ -14,7 +14,7 @@ const GuGuDanHooks = () => {
       setFirstNum(Math.ceil(Math.random() * 9));
       setSecondNum(Math.ceil(Math.random() * 9));
       setUsertValue('');
-      setResult((prevResult) => { return '정답 : ' + userValue });
+      setResult((prevResult) => { return '정답 : ' + userValue + ' 맞습니다!' });
       refInput.current.focus();
     } else {
       setUsertValue('');
