@@ -13,6 +13,8 @@ for (let i=0; i<4; i++) {
   answer.push(candidates[index]);
   candidates.splice(index,1);
 }
+console.log('a');
+
 
 
 const NumberBaseballHooks = () => {
@@ -20,7 +22,7 @@ const NumberBaseballHooks = () => {
   const [numberOfTries, setNumberOfTries] = useState(0);
   const [triedNumbers,  setTriedNumbers] = useState([]);
   const [result, setResult] = useState([]);
-  
+  console.log('b');
 
   const getResult = () => {
     console.log(answer.join(''));
