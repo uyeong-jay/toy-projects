@@ -25,7 +25,7 @@ class GuGuDanClass extends Component {
           firstNum: Math.ceil(Math.random() * 9),
           secondNum: Math.ceil(Math.random() * 9),
           userValue: '',
-          result: '정답 : ' + prevState.userValue, //현재값 사용됨
+          result: '정답 : ' + prevState.userValue + ' 맞습니다!', //현재값 사용됨
         };
       })
       this.$input.focus();
