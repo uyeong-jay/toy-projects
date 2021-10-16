@@ -1,16 +1,23 @@
 import React from 'react';
-import { connect } from 'react-readux';
+import { connect } from 'react-redux';
 
-const Detail = () => {
+const Detail = ({ toDo }) => {
   return(
     <>
-      Detail
+      {toDo?.text}
     </>
   )
 }
 
-const mapStateToProps = (state) => {
-  return {}
+//state 가져오기
+const mapStateToProps = (state, ownProps) => {
+
+  //match에서 주소 옵션 가져오기
+  const { id } = ownProps.match.params;
+
+  return {
+    toDo: state.find((toDo) => toDo.id === parseInt(id)),
+  };
 }
 
-export default connect(mapStateToProps) (Detail);
+export default connect(mapStateToProps)(Detail);
