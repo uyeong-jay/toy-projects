@@ -13,10 +13,10 @@ const addToDo = (text) => {
     text,
   }
 };
-const deleteToDo = () => {
+const deleteToDo = (id) => {
   return {
     type: DELETE,
-
+    id
   }
 };
 
@@ -24,9 +24,9 @@ const deleteToDo = () => {
 const reducer = (state=[], action) => {
   switch(action.type) {
     case ADD: 
-      return [...state, {id: action.id, text: action.text,}]
+      return [...state, {id: action.id, text: action.text,}];
     case DELETE: 
-      return state.filter((v) => v.id !== action.id)
+      return state.filter((v) => v.id !== action.id);
     default:
       return state;
   }
