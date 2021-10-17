@@ -6,8 +6,8 @@ import Detail from '../routes/Detail';
 const App = () => {
   return(
     <Router>
-      <Route path='/' exact component={Home} />
-      <Route path='/:id' exact component={Detail} />
+      <Route exact path='/'  component={Home} />
+      <Route exact path='/:id'  component={Detail} />
     </Router>
   )
 }
