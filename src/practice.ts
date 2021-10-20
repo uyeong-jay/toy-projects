@@ -35,11 +35,12 @@ sum1(1, '2');
 
 function sum2(a:number, b: string): void {}
 
+//----------------------------------
 
 //interface: 일반
 interface Person1 {
-  name: string,
-  age: number,
+  name: string;
+  age: number;
 };
 
 const me1: Person1 = {
@@ -49,12 +50,12 @@ const me1: Person1 = {
 
 //interface: 상속
 interface Person2 {
-  name: string,
-  age: number,
+  name: string;
+  age: number;
 };
 
 interface Developer2 extends Person2 {
-  skills: string[]
+  skills: string[];
 };
 
 const me2: Developer2 = {
@@ -66,7 +67,7 @@ const me2: Developer2 = {
 
 //interface: 함수
 interface func1 {
-  (a: number, b: string): string
+  (a: number, b: string): string;
 }
 
 let myfunc: func1; //간단히 지정 가능
@@ -75,7 +76,7 @@ myfunc = function(a: number, b: string): string {
 }
 myfunc(1, '2');
 
-
+//----------------------------------
 
 //type-alias 일반
 type Person3 = {
@@ -128,11 +129,46 @@ const people1: People = [me5, me6];
 const people2: Person5[] = [me5, me6];//확장
 
 
-
 //type-alias 확장2-2
 type Color = 'red' | 'blue' | 'green';
 const colors: Color[] = ['red', 'blue'];
 
+//interface와 type은 객체를 위한 타입을 쓸 경우엔 무엇이든 써되지만 하나를 골라 일관성 있게 쓰는 것이 중요하다.
+
+//----------------------------------
+
+//generics: 최초 타입 유추가 복잡하고 어려울때 주로 사용
+
+//generics 함수1: 
+//1.함수이름, 인자, 반환값자리에 타입을 넣을 자리를 만듬(인자느낌)
+//2.호출시 정확한 타입을 지정해 넣어줌(인수느낌)
+function func2<T>(text: T): T { //함수 선언식ver
+  return text;
+};
+func2<string>('a');
+
+const func3 = <T> (text: T): T => { //화살표 함수ver
+  return text;
+};
+func3<string>('a');
+
+
+//generics with interface:
+interface Item1<T> {
+  list: T[];
+}
+const items1: Item1<string> = {
+  list: ['a', 'b'],
+};
+
+
+//generics with type-alias
+type Items2<T> = {
+  list: T[];
+};
+const items2: Items2<string> = {
+  list: ['a', 'b'],
+};
 
 
 
