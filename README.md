@@ -5,7 +5,10 @@
 (결과물은 통째로 커밋해야 되는게 단점..)
 
 #### API with useState 
-(https://codesandbox.io/s/use-api-with-usestate-dvxek)
+- https://codesandbox.io/s/use-api-with-usestate-dvxek
 
 #### API with useReducer
-(https://codesandbox.io/s/use-api-with-usereducer-ixkrv)
+- https://codesandbox.io/s/use-api-with-usereducer-ixkrv
+
+#### API with useAsync(custom hooks)
+- https://codesandbox.io/s/use-api-with-useasync-zi8d6
