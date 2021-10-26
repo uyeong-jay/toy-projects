@@ -12,3 +12,9 @@
 
 #### API with useAsync(custom hooks)
 - https://codesandbox.io/s/use-api-with-useasync-zi8d6
+
+#### API with react-async
+- https://codesandbox.io/s/use-api-with-react-async-yxwwj
+
+#### API with utils
+- https://codesandbox.io/s/use-api-with-utils-3qixm
