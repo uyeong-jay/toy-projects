@@ -2,7 +2,7 @@
 <br />
 
 ### background.js
-- 리프레쉬 될때마다 배경을 랜덤하게 바꿈.
+- 리프레쉬 될 때마다 배경을 랜덤하게 바꿈.
 <br />
 
 ### calender-clock.js
