@@ -1,16 +1,16 @@
-export const formToDoList = document.querySelector(".form-toDoList"),
+const formToDoList = document.querySelector(".form-toDoList"),
   inputToDos = formToDoList.querySelector("input"),
   toDoList = document.querySelector(".toDoList");
 
-export const TODOS_LS = "todos";
+const TODOS_LS = "todos";
 
-export let toDos = [];
+let toDos = [];
 
-export function saveToDos() {
+function saveToDos() {
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
-export function delToDo(event) {
+function delToDo(event) {
   const btn = event.target;
   const li = btn.parentNode;
   toDoList.removeChild(li);
@@ -22,7 +22,7 @@ export function delToDo(event) {
 }
 
 
-export function createToDo(text) {
+function createToDo(text) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const delBtn = document.createElement("button");
@@ -42,14 +42,14 @@ export function createToDo(text) {
   saveToDos();
 }
 
-export function handleToDosSubmit(event) {
+function handleToDosSubmit(event) {
   event.preventDefault();
   const inputToDoVal = inputToDos.value;
   createToDo(inputToDoVal);
   inputToDos.value="";
 }
 
-export function loadToDos() {
+function loadToDos() {
   const getToDos = localStorage.getItem(TODOS_LS);
   if (getToDos !== null) {
     const parseToDos = JSON.parse(getToDos);
@@ -59,7 +59,7 @@ export function loadToDos() {
   };
 }
 
-export function initToDos() {
+function initToDos() {
   loadToDos();
   formToDoList.addEventListener("submit", handleToDosSubmit);
 }

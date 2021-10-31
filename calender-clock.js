@@ -1,48 +1,48 @@
-import {
-  formGreeeting,
-  USER_LS,
-  saveName,
-  handleGreetingSumit,
-  askForName,
-  welcome,
-  loadName,
-  initName
-} from './greeting.js';
+// import {
+//   formGreeeting,
+//   USER_LS,
+//   saveName,
+//   handleGreetingSumit,
+//   askForName,
+//   welcome,
+//   loadName,
+//   initName
+// } from './greeting.js';
 
-import {
-  formToDoList,
-  TODOS_LS,
-  toDos,
-  saveToDos,
-  delToDo,
-  createToDo,
-  handleToDosSubmit,
-  loadToDos,
-  initToDos
-} from './todo-list.js';
+// import {
+//   formToDoList,
+//   TODOS_LS,
+//   toDos,
+//   saveToDos,
+//   delToDo,
+//   createToDo,
+//   handleToDosSubmit,
+//   loadToDos,
+//   initToDos
+// } from './todo-list.js';
 
-import {
-  weather,
-  COORDS_LS,
-  getWeather,
-  saveCoords,
-  handleGeoSucces,
-  handleGeoError,
-  askForCoords,
-  loadCoords,
-  initCoords
-} from './weather.js'
+// import {
+//   weather,
+//   COORDS_LS,
+//   getWeather,
+//   saveCoords,
+//   handleGeoSucces,
+//   handleGeoError,
+//   askForCoords,
+//   loadCoords,
+//   initCoords
+// } from './weather.js'
 
-import {
-  container,
-  IMG_NUM,
-  images,
-  number,
-  initImg
-} from './background.js'
+// import {
+//   container,
+//   IMG_NUM,
+//   images,
+//   number,
+//   initImg
+// } from './background.js'
 
-const calender = document.querySelector(".calender"),
-  calenderDate = calender.querySelector(".date");
+const calender = document.querySelector(".calender");
+const calenderDate = calender.querySelector(".date");
 
 const clock = document.querySelector(".clock"),
   clockHour = clock.querySelector(".hour"),
