@@ -1,5 +1,4 @@
-# Todo-app
-todo-app (vanilla js)
+# Todo-app(vanilla js)
 <br />
 
 ### background.js
