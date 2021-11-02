@@ -39,5 +39,10 @@
 #### redux-thunk with middleware(thunk + logger) and api
 - https://codesandbox.io/s/redux-thunk-with-middleware-and-api-g7vis
 
+#### redux saga with middleware(saga + logger)
+- https://codesandbox.io/s/redux-saga-with-middleware-61qff
+
+#### redux saga with middleware(saga + logger) and api
+- https://codesandbox.io/s/redux-saga-with-middleware-and-api-cwqfg
 
 
