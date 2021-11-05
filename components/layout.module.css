@@ -1,10 +1,11 @@
 /* module.css */
+/* They scope styles at the component level  */
 
 .container {
   max-width: 36rem;
   padding: 0 1rem;
   margin: 3rem auto 6rem;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .header {
