@@ -1,5 +1,5 @@
 import '../styles/global.css'; 
-//global CSS files: only inside pages/_app.js 
+//global CSS files은 반드시 pages/_app.js 안에서 import
 
 
 export default function App({ Component, pageProps }) {
@@ -7,4 +7,4 @@ export default function App({ Component, pageProps }) {
     <Component {...pageProps} />
   );
 };
-//You need to restart the development server when you add pages/_app.js.
+//pages폴더에 _app.js 추가시 개발서버 재시작해주기
