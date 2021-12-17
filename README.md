@@ -1,2 +1,2 @@
-### next blog
+### next js tutorial
 
