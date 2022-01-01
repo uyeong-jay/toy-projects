@@ -1,7 +1,8 @@
 module.exports = {
   env: {
-    node: true,
     es2021: true,
+    node: true,
+    jset: true,
   },
   extends: [
     'airbnb-base',
