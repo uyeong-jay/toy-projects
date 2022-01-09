@@ -4,13 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "prepare": "cd .. && husky install back/.husky",
     "start:dev": "nodemon",
     "start:prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register ./dist/src/index.js",
     "build": "tsc -p tsconfig.prod.json",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "prepare": "cd .. && husky install back/.husky"
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@types/jest": "^27.4.0",
