@@ -1,0 +1,35 @@
+# workflow
+# main브랜치에 커밋시 back폴더의 코드들에 대해 테스트를 실행한다.
+name: Unit-Tests
+
+on: # 이벤트 감지
+  push:
+    branch:
+      - main #main 브랜치에서 실행
+
+jobs: # 작업들
+  Run-Unit-Tests:
+    name: Unit tests
+    runs-on: [ubuntu-latest] # 우분투 가상환경
+    steps:
+      - name: Check out repo code
+        uses: actions/checkout@v2
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+          cache: "yarn"
+      - name: Install dependencies
+        run: |
+          cd back
+          yarn install
+      - name: Run tests
+        run: |
+          cd back
+          yarn test
+      - name: If fail
+        run: exit 1
+        if: failure()
+      - name: Job's status
+        run: echo "🟢 This job's status is ${{ job.status }}"
