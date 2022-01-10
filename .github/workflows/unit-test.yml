@@ -1,5 +1,5 @@
 # workflow
-# main브랜치에 커밋시 back폴더의 코드들에 대해 테스트를 실행한다.
+# main브랜치에 커밋시 테스트를 실행한다.
 name: Unit-Tests
 
 on: # 이벤트 감지
@@ -8,12 +8,12 @@ on: # 이벤트 감지
       - main #main 브랜치에서 실행
 
 jobs: # 작업들
-  Run-Unit-Tests:
+  Back-Unit-Tests:
     name: Unit tests
     runs-on: [ubuntu-latest] # 우분투 가상환경
     steps:
       - name: Check out repo code
-        uses: actions/checkout@v2
+        uses: ./back/actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Set up node
         uses: ./back/actions/setup-node@v2
