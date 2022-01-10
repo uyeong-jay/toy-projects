@@ -18,8 +18,10 @@ jobs: # 작업들
       - name: Set up node
         uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version-file: ".nvmrc"
           cache: "yarn"
+          cache-dependency-path: |
+            back/yarn.lock
       - name: Install dependencies
         run: |
           cd back
