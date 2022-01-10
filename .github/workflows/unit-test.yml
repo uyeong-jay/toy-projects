@@ -4,8 +4,7 @@ name: Unit-Tests
 
 on: # 이벤트 감지
   push:
-    branch:
-      - main #main 브랜치에서 실행
+    branch: [main] # main 브랜치에서 실행
 
 jobs: # 작업들
   Back-Unit-Tests:
@@ -13,7 +12,7 @@ jobs: # 작업들
     runs-on: [ubuntu-latest] # 우분투 가상환경
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [14.x] # node 버전 설정
     steps:
       - name: Check out repo code
         uses: actions/checkout@v2
