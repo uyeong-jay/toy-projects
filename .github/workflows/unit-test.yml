@@ -16,7 +16,7 @@ jobs: # 작업들
         uses: actions/checkout@v2
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Set up node
-        uses: actions/setup-node@v2
+        uses: ./back/actions/setup-node@v2
         with:
           node-version-file: ".nvmrc"
           cache: "yarn"
