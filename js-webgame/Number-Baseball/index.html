@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number-Baseball</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <form id="form">
+
+    <!-- js외 input에도 같은 제한 걸어주기 가능 -->
+    <!-- <input type="text" id="input" required minlength="4" maxlength="4" pattern="^(?!.*(.).*\1)\d{4}$"> -->
+    <!-- pattern="^(?!.*(.).*\1)\d{4}$" :중복되지 않는 4자리 숫자만 골라주는 정규표현식 패턴 -->
+    <div>&lt; 10번 안에 맟춰 보는 숫자야구 :) &gt;</div>
+    <br/>
+    <div>중복되지 않는 숫자 4자리를 입력해 주세요.</div>
+    <input type="text" id="input" required>
+
+    <button type="submit" id="button">확인</button>
+  </form>
+  <div id="logs"></div>
+</body>
+</html>
