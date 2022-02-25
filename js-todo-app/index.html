@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="reset.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="js-calender-clock">
+      <div class="inner-calender-clock">
+        <div class="calender">
+          <span class="date"></span>
+        </div>
+        <div class="clock">
+          <span class="hour"></span>
+          <span class="colon1">:</span>
+          <span class="minute"></span>
+          <span class="colon2">:</span>
+          <span class="second"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="js-weather">
+      <div class="inner-weather">
+        <div class="weather"></div>
+      </div>
+    </div>
+
+    <div class="js-greeting-toDoList">
+      <div class="inner-greeting-toDoList">
+
+        <form class="form-greeting">
+          <input maxlength="8" type="text" placeholder="What's your name?">
+        </form>
+        <h1 class="greeting"></h1>
+
+        <form class="form-toDoList">
+          <input type="text" placeholder="What's your to do list?">
+        </form>
+        <ul class="toDoList"></ul>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="calender-clock.js"></script>
+  <script type="module" src="greeting.js"></script>
+  <script type="module" src="todo-list.js"></script>
+  <script type="module" src="weather.js"></script>
+  <script type="module" src="background.js"></script>
+</body>
+
+</html>
