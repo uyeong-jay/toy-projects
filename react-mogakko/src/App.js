@@ -1,6 +1,6 @@
 import Home from "./Home";
 import Detail from "./Detail";
-import Number from "./Number";
+import MiniProjects from "./MiniProjects";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <hr />
       <Detail />
       <hr />
-      <Number />
+      <MiniProjects />
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import styles from "./styles/Number.module.css";
+import Gugudan from "./Gugudan";
+import styles from "./styles/CountNumber.module.css";
 
-const Number = () => {
+const NumberProject = () => {
   const [number, setNumber] = useState(0);
 
   const onClickMinus = () => {
@@ -13,13 +14,14 @@ const Number = () => {
   };
 
   return (
-    <>
-      <h3>Count Number</h3>
+    <div>
+      <h3>Number Project</h3>
       <button onClick={onClickMinus}>-</button>
-      <span className={styles.number}>{number}</span>
+      <span className={styles.countNumber}>{number}</span>
       <button onClick={onClickPlus}>+</button>
-    </>
+      <Gugudan number={number} />
+    </div>
   );
 };
 
-export default Number;
+export default NumberProject;
