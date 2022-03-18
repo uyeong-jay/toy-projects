@@ -1,0 +1,21 @@
+mkdir server && cd server
+
+yarn init
+
+yarn add express mongoose dotenv cors morgan cookie-parser
+
+yarn add -D @types/express @types/mongoose @types/dotenv @types/cors @types/morgan @types/cookie-parser
+
+yarn add -D typescript ts-node-dev @types/node
+
+npx tsc --init >> tsconfig.json
+
+server/src/index.ts
+const test: string = 'Hello World';
+console.log(test);
+npx ts-node-dev src/index.ts >> Hello World
+
+npx tsc
+node dist/src/index.js >> Hello World
+
+
