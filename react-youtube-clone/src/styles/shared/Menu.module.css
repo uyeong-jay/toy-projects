@@ -5,6 +5,7 @@
   width: 240px;
   padding: 12px 12px 12px 0; /* top, right, bottom, left */
 }
+
 .link {
   display: flex;
   align-items: center;
@@ -15,9 +16,11 @@
   font-size: 14px;
   text-decoration: none;
 }
+
 .link:hover {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 .focused {
   display: flex;
   align-items: center;
@@ -28,6 +31,7 @@
   font-size: 14px;
   text-decoration: none;
 }
+
 .focused:hover {
   background-color: rgba(0, 0, 0, 0.15);
 }
