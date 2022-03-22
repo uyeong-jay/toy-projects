@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+.layout {
+  display: flex;
+  flex: 1;
+  margin-top: 56px;
+}
+.content {
+  margin-left: 240px;
+  flex: 1;
+}
