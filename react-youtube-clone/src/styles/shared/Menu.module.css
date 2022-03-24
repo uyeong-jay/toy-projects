@@ -41,3 +41,22 @@
   height: 24px;
   margin-right: 24px;
 }
+
+@media screen and (max-width: 911px) {
+  .text {
+    display: none; /* 실제 공간까지 없게해줌 */
+  }
+  .menu {
+    width: 72px;
+    padding: 0;
+  }
+  .link {
+    height: 72px;
+  }
+  .focused {
+    height: 72px;
+  }
+  .icon {
+    margin: 0;
+  }
+}

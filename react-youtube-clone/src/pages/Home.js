@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import youtubeData from "../data/youtubeData.json";
-import Layout from "../components/shared/_Layout";
+import Layout from "../components/shared/Layout";
 
 function Home() {
   const {

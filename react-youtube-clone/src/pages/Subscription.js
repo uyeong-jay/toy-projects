@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../components/shared/_Layout";
+import Layout from "../components/shared/Layout";
 
 const Subscription = () => {
   return (

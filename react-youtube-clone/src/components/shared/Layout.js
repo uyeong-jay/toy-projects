@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import styles from "../../styles/shared/_Layout.module.css";
+import styles from "../../styles/shared/Layout.module.css";
 import Header from "./Header";
 import Menu from "./Menu";
 
-const _Layout = ({ children, activeMenu }) => {
+const Layout = ({ children, activeMenu }) => {
   const [menuVisibility, setMenuVisibility] = useState(true);
 
   const onClickFiMenu = () => {
@@ -15,10 +15,14 @@ const _Layout = ({ children, activeMenu }) => {
       <Header onClickFiMenu={onClickFiMenu} />
       <div className={styles.layout}>
         <Menu activeMenu={activeMenu} menuVisibility={menuVisibility} />
-        <div className={styles.content}>{children}</div>
+        {menuVisibility ? (
+          <div className={styles.content}>{children}</div>
+        ) : (
+          <div className={styles["no-menu"]}>{children}</div>
+        )}
       </div>
     </div>
   );
 };
 
-export default _Layout;
+export default Layout;
