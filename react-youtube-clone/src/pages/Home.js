@@ -1,70 +1,49 @@
 import React, { useState } from "react";
+import youtubeData from "../data/youtubeData.json";
 import Layout from "../components/shared/Layout";
-import ContentLayout from "../components/shared/ContentLayout";
-import Content from "../components/shared/Content";
+import HomeCard from "../components/home/HomeCard";
+import HomeFilter from "../components/home/HomeFilter";
+import styles from "../styles/pages/home/Home.module.css";
+
+const categories = ["전체", "LISA", "BTS", "아이폰"];
 
 function Home() {
-  const [toggle, setToggle] = useState(true);
+  const [categoryText, setCategoryText] = useState("전체");
 
-  const onClickButton = () => {
-    setToggle(!toggle);
+  const onClickCategory = (e) => {
+    setCategoryText(e.currentTarget.value);
   };
+
+  const newData = youtubeData.data.filter((data, i) => {
+    const isTrueInTitle = data.title.includes(categoryText);
+
+    const isTrueInDescription = data.description.includes(categoryText);
+
+    if (categoryText === "전체") {
+      return data;
+    }
+    return isTrueInTitle === true || isTrueInDescription === true;
+  });
 
   return (
     <Layout activeMenu="home">
-      {/* <div>
-        <button onClick={onClickButton}>{toggle ? "hide" : "show"}</button>
+      <div className={styles.header}>
+        {categories.map((category, i) => (
+          <HomeFilter
+            key={i}
+            category={category}
+            categoryText={categoryText}
+            onClickCategory={onClickCategory}
+          />
+        ))}
       </div>
-
-      {toggle ? (
-        <>
-          <h3 style={{ background: "yellow", width: "200px" }}>Youtube Data</h3>
-          <div>
-            <b>Id</b>: {id}
-          </div>
-          <br />
-          <div>
-            <b>카테고리</b>: {category}
-          </div>
-          <div>
-            <b>채널 고유 Id</b>: {channelId}
-          </div>
-          <div>
-            <b>채널 URL</b>: {channelUrl}
-          </div>
-          <div>
-            <b>채널 이름</b>: {channelTitle}
-          </div>
-          <div>
-            <b>채널 썸네일</b>: {channelThumbnail}
-          </div>
-          <br />
-          <div>
-            <b>영상 제목</b>: {title}
-          </div>
-          <div>
-            <b>영상 썸네일</b>: {thumbnail}
-          </div>
-          <div>
-            <b>영상 설명</b>: {description.substring(0, 50)}...
-          </div>
-          <br />
-          <div>
-            <b>조회수</b>: {viewCount}
-          </div>
-          <div>
-            <b>좋아요 수</b>: {likeCount}
-          </div>
-          <div>
-            <b>업로드 시간</b>: {date}
-          </div>
-        </>
-      ) : (
-        <h1 style={{ background: "red", width: "200px" }}>No Post</h1>
-      )} */}
-      <ContentLayout>
-        <Content />
-      </ContentLayout>
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          {newData.map((data, i) => (
+            <HomeCard key={data.id} data={data} />
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }

@@ -6,11 +6,13 @@ import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/explore" element={<Explore />} />
-      <Route path="/subscription" element={<Subscription />} />
-    </Routes>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/explore" element={<Explore />} />
+        <Route path="/subscription" element={<Subscription />} />
+      </Routes>
+    </>
   );
 };
 
