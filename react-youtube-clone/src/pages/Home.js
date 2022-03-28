@@ -1,23 +1,9 @@
 import React, { useState } from "react";
-import youtubeData from "../data/youtubeData.json";
 import Layout from "../components/shared/Layout";
+import ContentLayout from "../components/shared/ContentLayout";
+import Content from "../components/shared/Content";
 
 function Home() {
-  const {
-    id,
-    channelId,
-    date,
-    title,
-    thumbnail,
-    description,
-    channelTitle,
-    category,
-    viewCount,
-    likeCount,
-    channelUrl,
-    channelThumbnail,
-  } = youtubeData.data[0];
-
   const [toggle, setToggle] = useState(true);
 
   const onClickButton = () => {
@@ -26,7 +12,7 @@ function Home() {
 
   return (
     <Layout activeMenu="home">
-      <div>
+      {/* <div>
         <button onClick={onClickButton}>{toggle ? "hide" : "show"}</button>
       </div>
 
@@ -75,7 +61,10 @@ function Home() {
         </>
       ) : (
         <h1 style={{ background: "red", width: "200px" }}>No Post</h1>
-      )}
+      )} */}
+      <ContentLayout>
+        <Content />
+      </ContentLayout>
     </Layout>
   );
 }

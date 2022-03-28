@@ -8,45 +8,45 @@
 .container {
   flex: 1;
   max-width: 1284px;
-  border: 5px solid black;
+  /* border: 5px solid black; */
 }
 
 /* 콘텐츠 너비 = 영상너비 + 메뉴너비(240px , 72px, 0px) + 좌우 여백(30px) */
 @media screen and (max-width: 529.9999px) {
   .container {
     flex: 0 1 214px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
   }
 }
 @media screen and (min-width: 530px) and (max-width: 743.9999px) {
   .container {
     flex: 0 1 428px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
   }
 }
 @media screen and (min-width: 744px) and (max-width: 1125.9999px) {
   .container {
     flex: 0 1 642px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
   }
 }
 @media screen and (min-width: 1126px) and (max-width: 1339.9999px) {
   .container {
     flex: 0 1 856px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
   }
 }
 @media screen and (min-width: 1340px) and (max-width: 1553.9999px) {
   .container {
     flex: 0 1 1070px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
   }
 }
 @media screen and (min-width: 1554) {
   .container {
     flex: 0 1 1284px;
-    border: 5px solid black;
+    /* border: 5px solid black; */
 
-    border: 5px solid black;
+    /* border: 5px solid black; */
   }
 }
