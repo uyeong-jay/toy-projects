@@ -16,26 +16,26 @@ const HomeCard = ({ data }) => {
           src={data.thumbnail}
           alt={`${data.title}의 썸네일`}
         />
-      </Link>
-      <div className={styles.info}>
-        <Link to={`https://www.youtube.com/channel/${data.channelId}`}>
-          <img
-            className={styles.channelImg}
-            src={data.channelThumbnail}
-            alt={`${data.channelTitle} 프로필 사진`}
-          />
-        </Link>
-        <div>
-          <div className={styles.title}> {data.title}</div>
-          <div className={styles.uploader}>{data.channelTitle}</div>
-          <div className={styles.flex}>
-            <div className={styles.view}>
-              {ProcessViewCount(data.viewCount)}
+        <div className={styles.info}>
+          <Link to={`https://www.youtube.com/channel/${data.channelId}`}>
+            <img
+              className={styles.channelImg}
+              src={data.channelThumbnail}
+              alt={`${data.channelTitle} 프로필 사진`}
+            />
+          </Link>
+          <div>
+            <div className={styles.title}> {data.title}</div>
+            <div className={styles.uploader}>{data.channelTitle}</div>
+            <div className={styles.flex}>
+              <div className={styles.view}>
+                {ProcessViewCount(data.viewCount)}
+              </div>
+              <div className={styles.date}>{ProcessUploadDate(data.date)}</div>
             </div>
-            <div className={styles.date}>{ProcessUploadDate(data.date)}</div>
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

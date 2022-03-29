@@ -14,7 +14,7 @@ const Header = ({ onClickFiMenu }) => {
   };
 
   const onClickSearch = () => {
-    console.log(search);
+    // console.log(search);
   };
 
   return (

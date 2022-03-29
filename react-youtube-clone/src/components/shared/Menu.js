@@ -6,7 +6,7 @@ import { FaRegCompass } from "react-icons/fa"; //유튜브 나침반
 import { MdSubscriptions } from "react-icons/md"; //유튜브 구독
 
 const Menu = ({ activeMenu, menuVisibility }) => {
-  console.log("activeMenu:", activeMenu);
+  // console.log("activeMenu:", activeMenu);
 
   return (
     <div className={styles.menu}>
