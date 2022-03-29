@@ -7,6 +7,16 @@ import { BsGrid3X3Gap } from "react-icons/bs"; //유튜브  점9개 메뉴
 import { HiOutlineDotsVertical } from "react-icons/hi"; //유튜브 점 3개 메뉴
 
 const Header = ({ onClickFiMenu }) => {
+  const [search, setSearch] = useState("");
+
+  const onChangeInput = (e) => {
+    setSearch(e.currentTarget.value);
+  };
+
+  const onClickSearch = () => {
+    console.log(search);
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.tab}>
@@ -14,8 +24,16 @@ const Header = ({ onClickFiMenu }) => {
         <img src={youtube_logo} alt="유튜브 로고" className={styles.logo} />
       </div>
       <div className={styles["center-tab"]}>
-        <input className={styles.input} />
-        <IoSearchOutline className={styles["search-icon"]} />
+        <input
+          className={styles.input}
+          type="text"
+          value={search}
+          onChange={onChangeInput}
+        />
+        <IoSearchOutline
+          className={styles["search-icon"]}
+          onClick={onClickSearch}
+        />
       </div>
       <div className={styles.tab}>
         <BsGrid3X3Gap className={styles.icon} />

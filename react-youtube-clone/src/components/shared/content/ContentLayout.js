@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/shared/ContentLayout.module.css";
+import styles from "../../../styles/shared/content/ContentLayout.module.css";
 
 const ContentLayout = ({ children }) => {
   return (

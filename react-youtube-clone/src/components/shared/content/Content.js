@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "../../styles/shared/ContentDetail.module.css";
+import styles from "../../../styles/shared/content/Content.module.css";
+import { ProcessViewCount } from "../../../utils/processViewCount";
+import { ProcessUploadDate } from "../../../utils/processUploadDate";
 
-const ContentDetail = ({ data }) => {
+const Content = ({ data }) => {
   const {
     id,
     channelId,
@@ -11,11 +13,7 @@ const ContentDetail = ({ data }) => {
     thumbnail,
     description,
     channelTitle,
-    category,
     viewCount,
-    likeCount,
-    channelUrl,
-    channelThumbnail,
   } = data;
 
   return (
@@ -40,8 +38,8 @@ const ContentDetail = ({ data }) => {
             >
               {channelTitle}
             </Link>
-            <div className={styles.view}>{viewCount}</div>
-            <div className={styles.time}>{date}</div>
+            <div className={styles.view}>{ProcessViewCount(viewCount)}</div>
+            <div className={styles.time}>{ProcessUploadDate(date)}</div>
           </div>
           <div className={styles.desc}>{description}</div>
         </div>
@@ -50,4 +48,4 @@ const ContentDetail = ({ data }) => {
   );
 };
 
-export default ContentDetail;
+export default Content;
