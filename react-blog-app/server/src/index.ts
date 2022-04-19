@@ -2,8 +2,13 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+
+//dotenv
 import dotenv from "dotenv";
 dotenv.config();
+
+//Database
+import "./config/database";
 
 //Middleware
 const app = express();

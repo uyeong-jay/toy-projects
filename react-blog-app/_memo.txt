@@ -18,4 +18,14 @@ npx ts-node-dev src/index.ts >> Hello World
 npx tsc
 node dist/src/index.js >> Hello World
 
+서버 실행하기
+
+몽고디비 만들기
+몽고디비 url연결하기
+
+
+yarn create react-app client --template typescript
+
+
+
 
