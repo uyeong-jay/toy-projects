@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-// 1. Create an interface representing a document in MongoDB.
+// 1. interface 생성 후 데이터(in mongoDB) 마다 타입 설정하기
 interface User {
   name: object;
   account: object;
@@ -9,7 +9,7 @@ interface User {
   type: object;
 }
 
-// 2. Create a Schema corresponding to the document interface.
+// 2. Schema 생성후 타입 적용하기
 const userSchema = new Schema<User>(
   {
     name: {
@@ -45,5 +45,5 @@ const userSchema = new Schema<User>(
   { timestamps: true }
 );
 
-// 3. Create a Model.
+// 3. Model 생성하기.
 export default model("User", userSchema);
