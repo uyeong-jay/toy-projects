@@ -39,6 +39,9 @@ const userSchema = new Schema<User>(
       default: "normal",
     },
   },
+  //timestamps(Mongoose):
+  //1. 해당 스키마에 createdAt, updatedAt를  자동 추가 및 업데이트
+  //2.타입은 Date
   { timestamps: true }
 );
 
