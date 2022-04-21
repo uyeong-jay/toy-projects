@@ -9,7 +9,7 @@ interface User {
   type: object;
 }
 
-// 2. Schema 생성후 타입 적용하기
+// 2. Schema(데이터 구성) 생성후 타입 적용하기
 const userSchema = new Schema<User>(
   {
     name: {
