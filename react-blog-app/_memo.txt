@@ -2,11 +2,11 @@ mkdir server && cd server
 
 yarn init
 
-yarn add express mongoose dotenv cors morgan cookie-parser
+yarn add express mongoose dotenv cors morgan cookie-parser bcrypt jsonwebtoken @types/bcrypt @types/jsonwebtoken
 
 yarn add -D @types/express @types/mongoose @types/dotenv @types/cors @types/morgan @types/cookie-parser
 
-yarn add -D typescript ts-node-dev @types/node
+yarn add -D typescript ts-node-dev @types/node tsconfig-paths
 
 npx tsc --init >> tsconfig.json
 

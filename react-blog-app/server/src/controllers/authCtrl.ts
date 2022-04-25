@@ -1,7 +1,7 @@
 import { Request, Response } from "express"; //types
 import Users from "@models/userModel";
 import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 
 const authCtrl = {
   register: async (req: Request, res: Response) => {
@@ -21,7 +21,8 @@ const authCtrl = {
       //단방향 해싱(bcrypt사용)
       //https://st-lab.tistory.com/100 (보안)
       // - 비번(+솔트)  > 해시 > 다이제스트(+솔트) > 해시 > 다이제스트 (더 강화 하고싶을때 보기)
-      const passwordHash = await bcrypt.hash(password, 12);
+      const salt = await bcrypt.genSalt(5);
+      const passwordHash = await bcrypt.hash(password, salt);
 
       //새유저 스키마 생성
       const newUser = new Users({

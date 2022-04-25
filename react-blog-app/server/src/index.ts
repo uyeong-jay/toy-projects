@@ -2,13 +2,14 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
+import routes from "@routes/index";
 
 //dotenv
 import dotenv from "dotenv";
 dotenv.config();
 
 //Database
-import "./config/database";
+import "@config/database";
 
 //Middleware
 const app = express();
@@ -19,9 +20,11 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 
 //Routes
-app.get("/", (req, res) => {
-  res.json({ msg: "Hello World" });
-});
+
+// app.get("/", (req, res) => {
+//   res.json({ msg: "Hello World" });
+// });
+app.use("/api", routes.authRouter);
 
 //Server listening
 const PORT = process.env.PORT || 5000;

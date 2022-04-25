@@ -16,7 +16,7 @@ const userSchema = new Schema<User>(
       type: String,
       required: [true, "Please add your name"],
       trim: true,
-      maxLength: [20, "Your name can be up to 20 chars long"],
+      maxLength: [20, "Your name must be 20 chars or less"],
     },
     account: {
       type: String,
