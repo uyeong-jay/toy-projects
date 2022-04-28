@@ -6,6 +6,7 @@ interface User {
   account: object;
   password: object;
   avatar: object;
+  role: object;
   type: object;
 }
 
@@ -33,6 +34,10 @@ const userSchema = new Schema<User>(
       type: String,
       default:
         "https://res.cloudinary.com/uyeong/image/upload/v1637676343/nextjs_media/igin1evr3clomdfy2ikm.png",
+    },
+    role: {
+      type: String,
+      default: "user",
     },
     type: {
       type: String,

@@ -4,7 +4,8 @@ import { valid } from "@middleware/valid";
 
 const authRouter = express.Router();
 
-//error: valid - No overload matches this call. The last overload gave the following error. => req, res 순서 재대로 바꿔 해결
+//에러: valid - No overload matches this call. The last overload gave the following error.
+//해결: req, res 순서 지키기
 authRouter.post("/register", valid, authCtrl.register);
 
 export default authRouter;

@@ -2,11 +2,31 @@ mkdir server && cd server
 
 yarn init
 
-yarn add express mongoose dotenv cors morgan cookie-parser bcrypt jsonwebtoken @types/bcrypt @types/jsonwebtoken
+yarn add 
+express 
+mongoose 
+dotenv 
+cors 
+morgan 
+cookie-parser 
+bcrypt 
+jsonwebtoken 
 
-yarn add -D @types/express @types/mongoose @types/dotenv @types/cors @types/morgan @types/cookie-parser
+yarn add -D 
+@types/express 
+@types/mongoose 
+@types/dotenv 
+@types/cors 
+@types/morgan 
+@types/cookie-parser
+@types/bcrypt 
+@types/jsonwebtoken
 
-yarn add -D typescript ts-node-dev @types/node tsconfig-paths
+yarn add -D 
+typescript 
+ts-node-dev 
+@types/node 
+tsconfig-paths
 
 npx tsc --init >> tsconfig.json
 
@@ -26,6 +46,12 @@ node dist/src/index.js >> Hello World
 
 yarn create react-app client --template typescript
 
+-----------------------
+yarn add nodemailer google-auth-library
+
+- nodemailer: node서버에서 메일을 보낼 수 있는 메일 전송 모듈
+
+- google-auth-library: 공식적으로 지원이 되는 구글의 node.js client library (구글 api를 이용해 OAuth 2.0 authorization 을 사용)
 
 
 
