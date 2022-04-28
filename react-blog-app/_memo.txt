@@ -49,6 +49,8 @@ yarn create react-app client --template typescript
 -----------------------
 yarn add nodemailer google-auth-library
 
+yarn add -D @types/nodemailer
+
 - nodemailer: node서버에서 메일을 보낼 수 있는 메일 전송 모듈
 
 - google-auth-library: 공식적으로 지원이 되는 구글의 node.js client library (구글 api를 이용해 OAuth 2.0 authorization 을 사용)
