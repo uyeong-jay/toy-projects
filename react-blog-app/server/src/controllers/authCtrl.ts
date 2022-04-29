@@ -2,6 +2,10 @@ import { Request, Response } from "express"; //types
 import Users from "@models/userModel";
 import bcrypt from "bcrypt";
 import { generateActiveToken } from "@config/generateToken";
+import sendEmail from "@config/sendEmail";
+import { validateEmail } from "@middleware/valid";
+
+const CLIENT_URL = `${process.env.BASE_URL}`;
 
 const authCtrl = {
   register: async (req: Request, res: Response) => {
@@ -38,10 +42,21 @@ const authCtrl = {
       // { newUser: { ~ } } >> 토큰화 (newUser에 {} 한번 더 씌워서 한번에 넘겨준것)
       const active_token = generateActiveToken({ newUser });
 
-      //새유저 데이터, active토큰 클라이언트로 보내기
-      return res
-        .status(200)
-        .json({ msg: "Registered successfully", data: newUser, active_token });
+      const url = `${CLIENT_URL}/active/${active_token}`;
+      const txt = "Verify your email address";
+
+      if (validateEmail(account)) {
+        sendEmail(account, url, txt);
+        //새유저 데이터, active토큰 클라이언트로 보내기
+        return res.status(200).json({
+          // msg: "Registered successfully",
+          // data: newUser,
+          // active_token,
+          msg: "Success! Please check your email.",
+        });
+      } else {
+        return res.status(400).json({ msg: "Your email is invalid." });
+      }
     } catch (err) {
       //에러: Object is of type 'unknown'
       //해결: typescript v4.4부터, try...catch에서 catch의 error object의 타입정의가 변경되어 직접 타입정의를 해줘야 한다.

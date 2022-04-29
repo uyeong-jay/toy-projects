@@ -2,7 +2,7 @@ import { Response, Request, NextFunction } from "express";
 
 //이메일 유효성 검사
 //https://stackoverflow.com/questions/46155
-const validateEmail = (email: string) => {
+export const validateEmail = (email: string) => {
   const regex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -12,7 +12,7 @@ const validateEmail = (email: string) => {
 
 //휴대전화(한국) 유효성 검사
 //https://yozm.wishket.com/magazine/detail/1217/
-const validatePhoneNumber = (phone: string) => {
+export const validatePhoneNumber = (phone: string) => {
   const regex = /^\d{2,3}-?\d{3,4}-?\d{4}/g;
 
   return regex.test(phone); //true or false
