@@ -5,8 +5,6 @@ import { generateActiveToken } from "@config/generateToken";
 import sendEmail from "@config/sendEmail";
 import { validateEmail } from "@middleware/valid";
 
-const CLIENT_URL = `${process.env.BASE_URL}`;
-
 const authCtrl = {
   register: async (req: Request, res: Response) => {
     try {
@@ -42,10 +40,10 @@ const authCtrl = {
       // { newUser: { ~ } } >> 토큰화 (newUser에 {} 한번 더 씌워서 한번에 넘겨준것)
       const active_token = generateActiveToken({ newUser });
 
-      const url = `${CLIENT_URL}/active/${active_token}`;
+      const url = `${process.env.BASE_URL}/active/${active_token}`;
       const txt = "Verify your email address";
-
       if (validateEmail(account)) {
+        //true or false
         sendEmail(account, url, txt);
         //새유저 데이터, active토큰 클라이언트로 보내기
         return res.status(200).json({

@@ -1,3 +1,6 @@
+https://www.youtube.com/watch?v=UiWu-zVw3AE&list=PLs4co9a6NhMw7xB4xPSkSQRM8uQVAZak6&index=2
+
+
 mkdir server && cd server
 
 yarn init

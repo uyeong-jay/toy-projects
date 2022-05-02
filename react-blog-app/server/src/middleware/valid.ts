@@ -26,36 +26,29 @@ export const valid = (
 ) => {
   const { name, account, password, cf_password } = req.body;
 
+  const errors = [];
+
   // name: 채우기, 20자이내
-  if (!name) return res.status(400).json({ msg: "Please add your name." });
+  if (!name) errors.push("Please add your name.");
   else if (name.length >= 20)
-    return res.status(400).json({ msg: "Your name must be 20 chars or less." });
+    errors.push("Your name must be 20 chars or less.");
 
   // account: 채우기, 형식일치(이메일, 폰)
-  if (!account)
-    return res
-      .status(400)
-      .json({ msg: "Please add your email or phone number." });
+  if (!account) errors.push("Please add your email or phone number.");
   else if (!validateEmail(account) && !validatePhoneNumber(account))
-    return res
-      .status(400)
-      .json({ msg: "Your email or phone number format is incorrect." });
+    errors.push("Your email or phone number format is incorrect.");
 
   // password: 채우기, 6자이상
-  if (!password)
-    return res.status(400).json({ msg: "Please add your password" });
+  if (!password) errors.push("Please add your password");
   else if (password.length < 6)
-    return res
-      .status(400)
-      .json({ msg: "Your password must be 6 chars or more." });
+    errors.push("Your password must be 6 chars or more.");
 
   // cf_password: 채우기, 비번비교
-  if (!cf_password)
-    return res.status(400).json({ msg: "Please add confirm password" });
+  if (!cf_password) errors.push("Please add confirm password");
   else if (password !== cf_password)
-    return res
-      .status(400)
-      .json({ msg: "Your password and confirm password should be same." });
+    errors.push("Your password and confirm password should be same.");
 
-  next();
+  if (errors.length > 0) return res.status(400).json({ msg: errors });
+
+  return next();
 };
