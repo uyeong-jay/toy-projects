@@ -3,9 +3,12 @@ import Users from "@models/userModel";
 import bcrypt from "bcrypt";
 import { generateActiveToken } from "@config/generateToken";
 import sendEmail from "@config/sendEmail";
+import sendMessage from "@config/sendMessage";
 import { validateEmail } from "@middleware/valid";
+import { validatePhoneNumber } from "@middleware/valid";
 
 const authCtrl = {
+  //req: 가져오기, res: 보내기
   register: async (req: Request, res: Response) => {
     try {
       //client에서 body 가져오기
@@ -14,7 +17,7 @@ const authCtrl = {
       //findOne(): 데이터들 중 가장 첫번째 데이터 하나만 탐색
       const user = await Users.findOne({ account });
 
-      //user가 존재하면 에러msg
+      //user가 존재하면 에러
       if (user)
         return res
           .status(400)
@@ -22,12 +25,11 @@ const authCtrl = {
 
       //단방향 해싱(여기선 bcrypt사용)
       //https://st-lab.tistory.com/100 (보안)
-      // - 비번(+솔트)  > 해시 > 다이제스트(+솔트) > 해시 > 다이제스트
-      //(더 강화 하고싶을때 해보기)
+      // - 비번(+솔트)  > 해시 > 다이제스트(+솔트) > 해시 > 다이제스트 (더 강화 하고싶을때 해보기)
       const salt = await bcrypt.genSalt(5);
       const passwordHash = await bcrypt.hash(password, salt);
 
-      //새유저 데이터 모음
+      //새유저 데이터 객체
       const newUser = {
         name,
         account,
@@ -35,25 +37,34 @@ const authCtrl = {
         cf_password,
       };
 
-      //active토큰 생성
+      //새유저 active토큰 생성
       //jwt홈페이지(https://jwt.io/) 에서 디코드된 상태의 데이터 확인 가능
       // { newUser: { ~ } } >> 토큰화 (newUser에 {} 한번 더 씌워서 한번에 넘겨준것)
       const active_token = generateActiveToken({ newUser });
 
       const url = `${process.env.BASE_URL}/active/${active_token}`;
-      const txt = "Verify your email address";
+
+      const txt = {
+        email: "Verify your email address",
+        phone: "Verify your phone number",
+      };
+
       if (validateEmail(account)) {
-        //true or false
-        sendEmail(account, url, txt);
-        //새유저 데이터, active토큰 클라이언트로 보내기
+        //메일 보내기(to, txt, url)
+        sendEmail(account, txt.email, url);
         return res.status(200).json({
-          // msg: "Registered successfully",
-          // data: newUser,
-          // active_token,
           msg: "Success! Please check your email.",
         });
+      } else if (validatePhoneNumber(account)) {
+        //문자 보내기(to, txt)
+        sendMessage(account, txt.phone);
+        return res.status(200).json({
+          msg: "Success! Please check your phone.",
+        });
       } else {
-        return res.status(400).json({ msg: "Your email is invalid." });
+        return res
+          .status(400)
+          .json({ msg: "Your email or phone number is invalid." });
       }
     } catch (err) {
       //에러: Object is of type 'unknown'

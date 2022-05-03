@@ -13,7 +13,8 @@ export const validateEmail = (email: string) => {
 //휴대전화(한국) 유효성 검사
 //https://yozm.wishket.com/magazine/detail/1217/
 export const validatePhoneNumber = (phone: string) => {
-  const regex = /^\d{2,3}-?\d{3,4}-?\d{4}/g;
+  // const regex = /^\d{2,3}-?\d{3,4}-?\d{4}/g; //010-****-**** or 010********
+  const regex = /^[+]/g; //+8210********
 
   return regex.test(phone); //true or false
 };
