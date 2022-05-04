@@ -20,6 +20,7 @@ import jwt from "jsonwebtoken";
 //정보가 도중에 조작되지는 않았는지 검증할 수 있다.
 
 export const generateActiveToken = (payload: object) => {
+  //jwt.sign() > 토큰 발급
   return jwt.sign(payload, `${process.env.ACTIVE_TOKEN_SECRET}`, {
     expiresIn: "5m",
   });

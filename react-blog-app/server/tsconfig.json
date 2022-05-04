@@ -25,7 +25,8 @@
       "@controllers/*": ["src/controllers/*"],
       "@middleware/*": ["src/middleware/*"],
       "@models/*": ["src/models/*"],
-      "@routes/*": ["src/routes/*"]
+      "@routes/*": ["src/routes/*"],
+      "@_types/*": ["src/_types/*"]
     },
     "esModuleInterop": true,
 

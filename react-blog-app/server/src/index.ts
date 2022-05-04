@@ -8,8 +8,8 @@ import routes from "@routes/index";
 import dotenv from "dotenv";
 dotenv.config();
 
-//Database
-import "@config/database";
+//connect
+import "@config/connect";
 
 //Middleware
 const app = express();
