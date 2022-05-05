@@ -28,3 +28,4 @@ const sendMessage = (to: string, body: string) => {
 };
 
 export default sendMessage;
+//사용: sendMessage(account, txt);

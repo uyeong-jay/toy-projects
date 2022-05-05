@@ -25,6 +25,7 @@ export const generateActiveToken = (payload: object) => {
     expiresIn: "5m",
   });
 };
+//사용: const active_token = generateActiveToken({ newUser }); //newUser: newUser
 
 export const generateAccessToken = (payload: object) => {
   return jwt.sign(payload, `${process.env.ACCESS_TOKEN_SECRET}`, {

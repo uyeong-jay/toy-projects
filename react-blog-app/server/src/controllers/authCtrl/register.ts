@@ -1,9 +1,9 @@
 import { Request, Response } from "express"; //types
-import User from "@models/userModel";
+import Users from "@models/userModel";
 import bcrypt from "bcrypt";
-import { generateActiveToken } from "@config/generateToken";
-import sendEmail from "@config/sendEmail";
-import sendMessage from "@config/sendMessage";
+import { generateActiveToken } from "@utils/generateToken";
+import sendEmail from "@utils/sendEmail";
+import sendMessage from "@utils/sendMessage";
 import { validateEmail } from "@middleware/valid";
 import { validatePhoneNumber } from "@middleware/valid";
 
@@ -13,8 +13,8 @@ export const register = async (req: Request, res: Response) => {
     //postman에서 직접 만들어 넘겨도됨
     const { name, account, password, cf_password } = req.body;
 
-    //findOne(): 데이터들 중 가장 첫번째 데이터 하나만 탐색
-    const user = await User.findOne({ account });
+    //findOne(): account 데이터들 중 가장 첫번째 데이터 하나만 탐색
+    const user = await Users.findOne({ account }); //account: account
 
     //user가 존재하면 에러
     if (user)
@@ -53,8 +53,8 @@ export const register = async (req: Request, res: Response) => {
       sendEmail(account, txt.email, url);
       return res.status(200).json({
         msg: "Success! Please check your email.",
-        // data: newUser,
-        // active_token,
+        data: newUser,
+        active_token,
       });
       // "data": {
       //   "name": "test1",

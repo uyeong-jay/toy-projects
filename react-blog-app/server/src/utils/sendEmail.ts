@@ -68,3 +68,4 @@ const sendEmail = async (to: string, txt: string, url: string) => {
 };
 
 export default sendEmail;
+//사용: sendEmail(account, txt, url);
