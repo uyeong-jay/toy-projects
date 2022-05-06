@@ -1,5 +1,5 @@
 import { Request, Response } from "express"; //types
-import { IToken } from "@_types/user";
+import { IDecodedToken } from "@src/_types/types";
 import Users from "@models/userModel";
 import jwt from "jsonwebtoken";
 
@@ -8,10 +8,10 @@ export const active = async (req: Request, res: Response) => {
     const { active_token } = req.body;
 
     //jwt.verify() > 토큰 확인(인증)
-    const decoded = <IToken>(
+    const decoded = <IDecodedToken>(
       jwt.verify(active_token, `${process.env.ACTIVE_TOKEN_SECRET}`)
     );
-    // console.log(decoded);
+    console.log(decoded);
     // {
     //   newUser: {
     //     name: 'test1',

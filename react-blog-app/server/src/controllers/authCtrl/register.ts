@@ -53,7 +53,6 @@ export const register = async (req: Request, res: Response) => {
       sendEmail(account, txt.email, url);
       return res.status(200).json({
         msg: "Success! Please check your email.",
-        data: newUser,
         active_token,
       });
       // "data": {
@@ -68,6 +67,8 @@ export const register = async (req: Request, res: Response) => {
       sendMessage(account, txt.phone);
       return res.status(200).json({
         msg: "Success! Please check your phone.",
+        active_token,
+        data: process.env.TWILIO_AUTH_TOKEN,
       });
     } else {
       return res

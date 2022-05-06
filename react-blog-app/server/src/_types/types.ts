@@ -5,8 +5,8 @@ export interface INewUser {
   cf_password: string;
 }
 
-export interface IToken extends INewUser {
-  newUser: INewUser;
+export interface IDecodedToken {
+  newUser?: INewUser;
   iat: number;
   exp: number;
 }
