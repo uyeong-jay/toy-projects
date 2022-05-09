@@ -10,6 +10,7 @@ const URI = process.env.MONGODB_URL;
 //   // useUnifiedTopology: true
 // }, (err) => {})
 
+//몽구스 연결
 mongoose.connect(`${URI}`, (err) => {
   if (err) console.log("mongodb conection error.", err);
   console.log("mongodb connected.");

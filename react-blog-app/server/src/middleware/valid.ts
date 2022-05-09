@@ -53,3 +53,4 @@ export const valid = (
 
   return next();
 };
+//사용법: authRouter.post("/register", valid, authCtrl.register);

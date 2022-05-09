@@ -48,7 +48,7 @@ export const active = async (req: Request, res: Response) => {
 
     //db에 user 객체 (model형식으로)저장 with (createdAt, updatedAt)
     await new_user.save();
-    return res.status(200).json({ msg: "Success!" });
+    return res.status(200).json({ msg: "Register Success!" });
   } catch (err) {
     if (err instanceof Error) return res.status(500).json({ msg: err.message });
   }

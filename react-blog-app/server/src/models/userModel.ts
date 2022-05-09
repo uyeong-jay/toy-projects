@@ -1,17 +1,7 @@
 import { Schema, model } from "mongoose";
+import { IUser } from "@_types/types";
 
-// 1. interface 생성 후 데이터(in mongoDB) 마다 타입 설정하기
-interface User {
-  name: object;
-  account: object;
-  password: object;
-  avatar: object;
-  role: object;
-  type: object;
-}
-
-// 2. Schema(데이터 구성) 생성후 타입 적용하기
-const userSchema = new Schema<User>(
+const userSchema = new Schema<IUser>(
   {
     name: {
       type: String,
@@ -50,5 +40,5 @@ const userSchema = new Schema<User>(
   { timestamps: true }
 );
 
-// 3. Model 생성하기.
+//Model 생성
 export default model("User", userSchema);

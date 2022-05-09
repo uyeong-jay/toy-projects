@@ -9,5 +9,6 @@ const authRouter = express.Router();
 //해결: req, res 순서 지키기
 authRouter.post("/register", valid, authCtrl.register);
 authRouter.post("/active", authCtrl.active);
+authRouter.post("/login", authCtrl.login);
 
 export default authRouter;
