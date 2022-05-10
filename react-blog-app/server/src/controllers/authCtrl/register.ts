@@ -25,8 +25,8 @@ export const register = async (req: Request, res: Response) => {
     //단방향 해싱(여기선 bcrypt사용)
     //https://st-lab.tistory.com/100 (보안)
     // - 비번(+솔트)  > 해시 > 다이제스트(+솔트) > 해시 > 다이제스트 (더 강화 하고싶을때 해보기)
-    const salt = await bcrypt.genSalt(5);
-    const passwordHash = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt(5); //bcrypt.genSalt() >> 솔트추가
+    const passwordHash = await bcrypt.hash(password, salt); //bcrypt.hash() >> 비번해싱
 
     //새유저 데이터 객체
     const newUser = {

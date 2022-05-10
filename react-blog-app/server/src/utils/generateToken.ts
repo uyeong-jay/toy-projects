@@ -32,9 +32,11 @@ export const generateAccessToken = (payload: object) => {
     expiresIn: "15m",
   });
 };
+//사용: const access_token = generateAccessToken({ id: user._id });
 
 export const generateRefreshToken = (payload: object) => {
   return jwt.sign(payload, `${process.env.REFRESH_TOKEN_SECRET}`, {
     expiresIn: "30d",
   });
 };
+//사용: const refresh_token = generateRefreshToken({ id: user._id });
