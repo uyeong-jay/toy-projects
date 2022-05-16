@@ -29,17 +29,15 @@ export const checkLoginUser = async (
 
   // await Users.findOneAndUpdate({ _id: user._id }, { rf_token: refresh_token });
 
-  res.cookie("refreshtoken", refresh_token, {
+  res.cookie("refresh_token", refresh_token, {
     httpOnly: true,
     path: `/api/rf_token`,
     maxAge: 30 * 24 * 60 * 60 * 1000, //day*hour*min*sec*ms //30days
   });
 
-  res.json({
+  res.status(200).json({
     msg: "Login Success!",
     access_token,
-    data: {
-      user,
-    },
+    data: { ...user._doc, password: "" },
   });
 };

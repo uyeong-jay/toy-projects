@@ -9,6 +9,7 @@ export interface IUser {
   password: string;
   role: string;
   type: string;
+  _doc: object;
 }
 
 export interface INewUser {
