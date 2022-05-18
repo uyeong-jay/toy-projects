@@ -1,5 +1,5 @@
 import { Request, Response } from "express"; //types
-import { IDecodedToken } from "@src/_types/types";
+import { IDecodedToken } from "@_types/types";
 import Users from "@models/userModel";
 import jwt from "jsonwebtoken";
 
@@ -11,7 +11,7 @@ export const active = async (req: Request, res: Response) => {
     const decoded = <IDecodedToken>(
       jwt.verify(active_token, `${process.env.ACTIVE_TOKEN_SECRET}`)
     );
-    console.log(decoded);
+    // console.log(decoded);
     // {
     //   newUser: {
     //     name: 'test1',
@@ -46,8 +46,9 @@ export const active = async (req: Request, res: Response) => {
     //   _id: new ObjectId("~~")
     // }
 
-    //db에 user 객체 (model형식으로)저장 with (createdAt, updatedAt)
+    //db에 user 객체 (model형식으로)저장 (with createdAt, updatedAt)
     await new_user.save();
+
     return res.status(200).json({ msg: "Register Success!" });
   } catch (err) {
     if (err instanceof Error) return res.status(500).json({ msg: err.message });

@@ -1,10 +1,10 @@
 import { Response } from "express";
-import Users from "@src/models/userModel";
+import Users from "@models/userModel";
 import bcrypt from "bcrypt";
 import {
   generateAccessToken,
   generateRefreshToken,
-} from "@src/utils/generateToken";
+} from "@utils/generateToken";
 
 export const checkLoginUser = async (
   account: string,
@@ -29,6 +29,7 @@ export const checkLoginUser = async (
 
   // await Users.findOneAndUpdate({ _id: user._id }, { rf_token: refresh_token });
 
+  //쿠키 만들어 보내기
   res.cookie("refresh_token", refresh_token, {
     httpOnly: true,
     path: `/api/rf_token`,

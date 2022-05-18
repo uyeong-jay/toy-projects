@@ -1,5 +1,5 @@
 import { Response } from "express";
-import Users from "@src/models/userModel";
+import Users from "@models/userModel";
 
 export const checkRegisterUser = async (account: string, res: Response) => {
   //user 찾기
