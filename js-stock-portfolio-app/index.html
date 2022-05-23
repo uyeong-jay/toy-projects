@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="uyeong" />
+    <meta name="keywords" content="stock, portfolio, stock portfolio" />
+    <meta name="description" content="stock portfolio" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uyeong Stock</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <nav>
+          <button>전기차</button>
+          <button>반도체</button>
+          <button>신재생 에너지</button>
+          <button>엔터테인먼트</button>
+        </nav>
+      </header>
+      <main>
+        <div>
+          <div>
+            <h2>전기차 종목 관리</h2>
+          </div>
+          <form id="electric-car-form">
+            <label>전기차 종목 이름</label>
+            <input
+              id="electric-car-item"
+              type="text"
+              name="electricCarItem"
+              placeholder="종목 이름"
+            />
+            <button id="add-item-button" type="button" name="addItemButton">
+              추가
+            </button>
+          </form>
+          <ul id="electric-car-item-list"></ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
