@@ -7,7 +7,7 @@ export const active = async (req: Request, res: Response) => {
   try {
     const { active_token } = req.body;
 
-    //jwt.verify() > 토큰 확인(인증)
+    //jwt.verify() > 토큰 확인(인증) 후 디코드된 데이터 반환
     const decoded = <IDecodedToken>(
       jwt.verify(active_token, `${process.env.ACTIVE_TOKEN_SECRET}`)
     );

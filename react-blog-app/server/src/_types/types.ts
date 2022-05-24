@@ -20,7 +20,8 @@ export interface INewUser {
 }
 
 export interface IDecodedToken {
-  newUser?: INewUser;
+  id?: string; //refresh_token 디코드 > id정보
+  newUser?: INewUser; //active_token 디코드 > user정보
   iat: number;
   exp: number;
 }

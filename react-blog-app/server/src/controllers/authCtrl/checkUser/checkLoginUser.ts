@@ -19,6 +19,7 @@ export const checkLoginUser = async (
     return res.status(400).json({ msg: "This account doesn't exist." });
 
   //user가 있을경우
+  //비번 일치 확인
   const isMatch = await bcrypt.compare(password, user.password);
 
   if (!isMatch) return res.status(400).json({ msg: "Password is incorrect." });
@@ -29,10 +30,10 @@ export const checkLoginUser = async (
 
   // await Users.findOneAndUpdate({ _id: user._id }, { rf_token: refresh_token });
 
-  //쿠키 만들어 보내기
+  //refresh_token 쿠키 만들기
   res.cookie("refresh_token", refresh_token, {
     httpOnly: true,
-    path: `/api/rf_token`,
+    path: `/api/refresh`,
     maxAge: 30 * 24 * 60 * 60 * 1000, //day*hour*min*sec*ms //30days
   });
 
