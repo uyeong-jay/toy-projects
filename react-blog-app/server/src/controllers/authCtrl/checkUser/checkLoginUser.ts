@@ -24,13 +24,13 @@ export const checkLoginUser = async (
 
   if (!isMatch) return res.status(400).json({ msg: "Password is incorrect." });
 
-  //유저 id 토큰생성
+  //유저 id를 토큰으로 만들기1(access, refresh)
   const access_token = generateAccessToken({ id: user._id });
   const refresh_token = generateRefreshToken({ id: user._id });
 
   // await Users.findOneAndUpdate({ _id: user._id }, { rf_token: refresh_token });
 
-  //refresh_token 쿠키 만들기
+  //(유저 id)refresh_token 쿠키 만들기
   res.cookie("refresh_token", refresh_token, {
     httpOnly: true,
     path: `/api/refresh`,
@@ -40,6 +40,6 @@ export const checkLoginUser = async (
   res.status(200).json({
     msg: "Login Success!",
     access_token,
-    data: { ...user._doc, password: "" },
+    data: { ...user._doc, password: "" }, //비번빼고 보여주는 방법1
   });
 };
