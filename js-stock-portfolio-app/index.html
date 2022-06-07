@@ -12,6 +12,9 @@
   <body>
     <div id="app">
       <header>
+        <a href="#">
+          <h1>2022 주식 포트폴리오</h1>
+        </a>
         <nav>
           <button>전기차</button>
           <button>반도체</button>
@@ -23,22 +26,23 @@
         <div>
           <div>
             <h2>전기차 종목 관리</h2>
+            <span>총 0개</span>
           </div>
           <form id="electric-car-form">
             <label>전기차 종목 이름</label>
             <input
-              id="electric-car-item"
+              id="electric-car-name"
               type="text"
               name="electricCarItem"
               placeholder="종목 이름"
             />
-            <button id="add-item-button" type="button" name="addItemButton">
-              추가
-            </button>
+            <button id="add-button" type="button" name="addButton">추가</button>
           </form>
-          <ul id="electric-car-item-list"></ul>
+          <ul id="electric-car-name-list"></ul>
         </div>
       </main>
     </div>
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
