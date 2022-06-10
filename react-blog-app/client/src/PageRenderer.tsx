@@ -8,6 +8,7 @@ const generatePage = (name: string) => {
   const component = () => require(`./pages/${name}`).default;
 
   try {
+    // ./pages/${name}경로의 component를 보여주기
     return React.createElement(component());
   } catch (err) {
     return <NotFound />;

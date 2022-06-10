@@ -26,16 +26,16 @@ export const refresh = async (req: Request, res: Response) => {
     if (!decoded) res.status(400).json({ msg: "Please login first!" });
 
     //디코드된 유저 id 값으로 동일한 id의 유저 데이터 가져오기 (유저 확인용)
-    //유저 데이터에 비번 빼고 refresh_token 넣기
+    //user에 유저 데이터에서 비번 빼고 나머지 데이터 넣기
     const user = await Users.findById(decoded?.id).select("-password"); //비번빼고 보여주는 방법2
     // console.log(user);
     // {
     //   _id: new ObjectId("628c484bd2b44d75c5515c18"),
-    //   name: 'test2',
-    //   account: 'tomas718@naver.com',
+    //   name: 'test1',
+    //   account: 'test1@naver.com',
     //   avatar: 'https://res.cloudinary.com/uyeong/image/upload/v1637676343/nextjs_media/igin1evr3clomdfy2ikm.png',
     //   role: 'user',
-    //   type: 'normal',
+    //   type: 'register',
     //   createdAt: 2022-05-24T02:51:55.843Z,
     //   updatedAt: 2022-05-24T02:51:55.843Z,
     //   __v: 0
@@ -47,15 +47,13 @@ export const refresh = async (req: Request, res: Response) => {
     //에러: error TS2531: Object is possibly 'null'.
     //해결: 옵셔널 체이닝 넣어줌으로써 해결
     const access_token = generateAccessToken({ id: user?._id });
-    const refresh_token = generateRefreshToken({ id: user?._id });
+    // const refresh_token = generateRefreshToken({ id: user?._id });
 
     //아래 두개 비교해보기
-
     // await Users.findOneAndUpdate({ _id: user?._id }, { rf_token: refresh_token });
-
     // await Users.findOneAndUpdate({ rf_token: refresh_token });
 
-    res.status(200).json({ msg: "success!", access_token, user });
+    res.status(200).json({ msg: "success!", access_token });
   } catch (err) {
     if (err instanceof Error) return res.status(500).json({ msg: err.message });
   }

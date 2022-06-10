@@ -27,16 +27,16 @@ const userSchema = new Schema<IUser>(
     },
     role: {
       type: String,
-      default: "user",
+      default: "user", //admin
     },
     type: {
       type: String,
-      default: "normal",
+      default: "register", //login
     },
   },
   //timestamps(Mongoose):
   //1. 해당 스키마에 createdAt, updatedAt를  자동 추가 및 업데이트
-  //2.타입은 Date
+  //2. 타입은 Date
   { timestamps: true }
 );
 
