@@ -1,0 +1,15 @@
+{
+  "name": "redux-toolkit-tutorial",
+  "version": "1.0.0",
+  "description": "redux-toolkit-tutorial",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/william-jacob/toy-projects/redux-tookit-tutorial",
+    "type": "git"
+  },
+  "author": "uyeong",
+  "license": "MIT",
+  "dependencies": {
+    "redux": "^4.2.0"
+  }
+}
