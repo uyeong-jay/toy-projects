@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 
 export default {
-  title: "Form/Input",
+  title: "Design System/Atoms/Input",
   component: Input,
 };
 
