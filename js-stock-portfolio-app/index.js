@@ -1,9 +1,14 @@
-// <메뉴추가>
-// [x] 메뉴이름 입력 받아 엔터키와 버튼클릭으로 추가되게 하기
-// [x] 메뉴는 ul 태그에 메뉴 추가 되게 하기
-// [x] 메뉴 추가 되면 input은 빈값으로 초기화 하기
-// [x] 총 메뉴 갯수 세어 보여주기
-// [x] 사용자의 입력값이 빈 값이면 추가되지 않도록 하기
+// 메뉴 추가
+// - [x] 메뉴이름 입력 받아 엔터키와 버튼클릭으로 추가되게 하기
+// - [x] 메뉴는 ul 태그에 메뉴 추가 되게 하기
+// - [x] 메뉴 추가 되면 input은 빈값으로 초기화 하기
+// - [x] 총 메뉴 갯수 세어 보여주기
+// - [x] 사용자의 입력값이 빈 값이면 추가되지 않도록 하기
+
+// 메뉴 수정
+// - [x] 메뉴 수정 버튼을 누르면 수정값을 입력받는 모달창(prompt)이 뜬다.
+// - [] 모달창에 수정값을 입력 후 확인 버튼을 누르면 메뉴가 수정된다.
+// - [] 모달창에서 취소 버튼을 누르면 수정되지 않는다.
 
 //선택자 모음
 const selectors = {
@@ -23,21 +28,26 @@ const tag = (element) => document.createElement(element);
 //추가된 주식 종목 모아 놓는 배열
 let stockMenus = [];
 
-//종목을 갯수 보여주는 함수
+//종목을 갯수를 보여주는 함수
 function countMenu() {
   $(selectors.stockCount).textContent = `총 ${stockMenus.length}개`;
+}
+
+//수정 버튼 클릭시 실행되는 함수
+function handleEditBtn(electricCarName) {
+  const editContent = prompt("종목이름을 수정해주세요.", electricCarName);
 }
 
 //유저 입력값 생성 함수
 function createName(electricCarName) {
   if (electricCarName) {
-    //방법1.
+    //입력된 값이 빈값이 아닐떄
     //태그 생성
     const li = tag("li");
     const span = tag("span");
-    const soldOutBtn = tag("button");
-    const eidtBtn = tag("button");
-    const delBtn = tag("button");
+    const soldOutBtn = tag("button"); //품절 버튼
+    const eidtBtn = tag("button"); //수정 버튼
+    const delBtn = tag("button"); //삭제 버튼
 
     //태그 배치
     $(selectors.stockList).appendChild(li);
@@ -52,25 +62,15 @@ function createName(electricCarName) {
     eidtBtn.textContent = "수정";
     delBtn.textContent = "삭제";
 
-    //방법2.
-    //<insertAdjacentHTML or innerHTML: 보안에 취약>
-    // $(selectors.stockList).insertAdjacentHTML(
-    //   "beforeend",
-    //   `
-    //     <li>
-    //       <span>${electricCarName}</span>
-    //       <button type="button">품절</button>
-    //       <button type="button">수정</button>
-    //       <button type="button">삭제</button>
-    //     </li>
-    //   `
-    // );
+    //수정 버튼 클릭시 이벤트
+    eidtBtn.addEventListener("click", () => handleEditBtn(electricCarName));
   } else {
-    alert("종목을 입력해주세요.");
-    return; //함수 끝내기
+    //입력된 값이 빈값이 일때
+    alert("종목 이름을 입력해주세요.");
+    return; //현재 함수 끝내기
   }
-  stockMenus.push(electricCarName);
-  countMenu();
+  stockMenus.push(electricCarName); //추가된 종목 모아놓기
+  countMenu(); //추가된 종목 갯수 세기
 }
 
 function handleSubmit(e) {
@@ -87,19 +87,12 @@ function handleSubmit(e) {
 
 //0. 브라우저가 js 파일을 불러왔을때 js가 실행되도록 만들기
 function App() {
-  $(selectors.stockForm).addEventListener("submit", handleSubmit);
-  $(selectors.addBtn).addEventListener("click", handleSubmit);
-  $(selectors.stockCount).textContent = "총 0개";
+  $(selectors.stockForm).addEventListener("submit", handleSubmit); //엔터시 이벤트
+  $(selectors.addBtn).addEventListener("click", handleSubmit); //추가 버튼 클릭시 이벤트
+  $(selectors.stockCount).textContent = "총 0개"; //초기 갯수 보여주기
 }
 
 App();
-
-// <메뉴 수정>
-// 메뉴 수정 버튼 클릭
-// 메뉴 입력창(브라우저 prompt 인터페이스 활용)
-// 저장, 취소 버튼
-// 저장 > 메뉴 바뀜
-// 취소 > 메뉴 안바뀜
 
 // <메뉴 삭제>
 // 메뉴 삭제 버튼
