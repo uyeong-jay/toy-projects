@@ -15,6 +15,9 @@ export default function Home() {
         <li>
           <Link href="/routes">routes</Link>
         </li>
+        <li>
+          <Link href="/pre-rendering">pre-rendering</Link>
+        </li>
       </ul>
     </div>
   );
