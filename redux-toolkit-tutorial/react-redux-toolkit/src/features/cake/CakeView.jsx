@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { ordered, restocked } from "./cakeSlice";
+import { ordered, restocked } from "./cakeSlice"; //cakeSlice에서 원하는 액션 가져오기
 
 const CakeView = () => {
   const [value, setValue] = useState(1);
-  const numOfCakes = useSelector((state) => state.cake.numOfCakes);
-  const dispatch = useDispatch();
+  const numOfCakes = useSelector((state) => state.cake.numOfCakes); //useSelector: 리덕스 스토어의 현재 상태를 조회하는 hook
+  const dispatch = useDispatch(); //useDispatch: 리덕스 스토어의 dispatch를 사용할수 있게 하는 hook
   return (
     <>
       <h2>Number of cake: {numOfCakes}</h2>

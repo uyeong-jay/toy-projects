@@ -26,7 +26,7 @@ const cakeSlice = createSlice({
     },
   },
   //+2. 리듀서 추가하기 - 다른곳에 이미 정의한 action을 사용하고 싶을때 사용
-  // - 예를들어 누군가 커피(coffeeActions.ordered)를 사면 케이크(state.numOfCakes--)를 서비스로 주고 싶을때 사용
+  // - 예를들어 누군가 커피를 사면(coffeeActions.ordered) 케이크를 서비스로(state.numOfCakes--) 주고 싶을때 사용
   extraReducers: (builder) => {
     builder.addCase(coffeeOrdered, (state) => {
       state.numOfCakes--;

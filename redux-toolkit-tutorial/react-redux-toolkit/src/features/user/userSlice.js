@@ -10,13 +10,13 @@ const initialState = {
 };
 
 //3. createAsyncThunk로 데이터 가져오기
-const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
+export const fetchUsers = createAsyncThunk("user/fetchUsers", () => {
   //data를 콘솔에 보여줄려고 return을 넣어준 후
   //index.js에서는 unsubscribe()를 주석 처리 해주기
   return axios
     .get("https://jsonplaceholder.typicode.com/users")
     .then((res) => res.data);
-  // .catch((err) => err.res.data); //에러 메세지를 action.error.message 로 리듀서에 전달함
+  // .catch((err) => err.res.data);
 });
 
 //4. createSlice로 pending, fulfilled, rejected 넣은 리듀서 만들기
@@ -46,4 +46,3 @@ const userSlice = createSlice({
 //5. 자신의 Slice에서 reducer 내보내기
 //6. 데이터 가져오는 함수(fetchUsers) 내보내기
 export default userSlice.reducer;
-export { fetchUsers };
