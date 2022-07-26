@@ -1,7 +1,7 @@
 //index: action을 dispatch 하기, subscribe로 상태 확인하기
 
 //1. store.js에서 'store' 불러오기
-const store = require("./app/store");
+const store = require("../react-redux-toolkit/src/app/store");
 
 //2. 자신의 Slice에서 'actions' 불러오기
 const { cakeActions } = require("./features/cake/cakeSlice");

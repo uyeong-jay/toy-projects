@@ -1,3 +1,5 @@
+//redux-toolkit: async action
+
 //1. createSlice, createAsyncThunk, axios 불러오기
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 const axios = require("axios");
