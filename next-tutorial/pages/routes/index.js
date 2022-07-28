@@ -14,17 +14,22 @@ const Routes = ({ productId = 100, reviewId = 100 }) => {
 
   return (
     <>
-      <h3>
-        {/* 일반 링크 */}
-        <Link href="/routes/products1">products1</Link>
-      </h3>
-      <h3>
-        {/* 백틱 사용 */}
-        <Link href={`/routes/products1/${productId}/review/${reviewId}`}>
-          products1 detail
-        </Link>
-      </h3>
-      <button onClick={onClick}>redirect to products2</button>
+      <h3>Routes</h3>
+      <ul>
+        <li>
+          {/* 일반 링크 */}
+          <Link href="/routes/products1">products1</Link>
+        </li>
+        <li>
+          {/* 백틱 사용 */}
+          <Link href={`/routes/products1/${productId}/review/${reviewId}`}>
+            products1 review
+          </Link>
+        </li>
+        <li>
+          <button onClick={onClick}>products2(redirect)</button>
+        </li>
+      </ul>
     </>
   );
 };

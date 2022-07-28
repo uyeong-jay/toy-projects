@@ -9,9 +9,13 @@ const ReviewDetail = () => {
   //localhost:3000/routes/products1/productId자리/review/reviewId자리
 
   return (
-    <div>
-      상품 id: {productId}, 리뷰 id: {reviewId}
-    </div>
+    <>
+      <h3>Review detail</h3>
+      <ul>
+        <li>상품 id: {productId}</li>
+        <li>리뷰 id: {reviewId}</li>
+      </ul>
+    </>
   );
 };
 

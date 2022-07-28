@@ -1,19 +1,14 @@
-import Link from "next/link";
 import React from "react";
+import Post from "../../../components/pre-rendering/post/post";
 
 const Posts = ({ posts }) => {
   return (
     <>
-      <h3>Post list</h3>
+      <h3>List of posts</h3>
       <ul>
-        {posts.map((post, i) => {
-          return (
-            <Link href={`/pre-rendering/posts/${post.id}`} key={post.id} passHref>
-              {/* Link는 오직 하나의 child만 지원 */}
-              <li>{post.id}: {post.title}</li>
-            </Link>
-          );
-        })}
+        {posts.map((post, i) => (
+          <Post key={post.id} post={post} />
+        ))}
       </ul>
     </>
   );

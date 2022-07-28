@@ -1,5 +1,5 @@
 import React from "react";
-import User from "../../../components/pre-rendering/user";
+import User from "../../../components/pre-rendering/User/User";
 
 const Users = ({ users }) => {
   return (
